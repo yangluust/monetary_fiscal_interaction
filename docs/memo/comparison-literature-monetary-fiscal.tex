@@ -1,0 +1,489 @@
+
+\documentclass[12pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{geometry,ulem,graphicx,caption,color,setspace,sectsty,comment,footmisc,caption,pdflscape,array,indentfirst,booktabs,placeins,rotating,adjustbox,multirow,makecell}
+
+\usepackage{hyperref}
+\usepackage[flushleft]{threeparttable}
+\usepackage[labelfont=bf]{caption}
+\usepackage{pdflscape}
+\usepackage{rotating}
+\usepackage[authoryear]{natbib}
+\usepackage{soul}
+\usepackage[position=bottom]{subfig}
+\usepackage{setspace}
+\usepackage{enumerate}
+\usepackage{enumitem}
+
+%\normalem
+
+%\onehalfspacing
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}{Proposition}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+\newtheorem{hyp}{Hypothesis}
+\newtheorem{subhyp}{Hypothesis}[hyp]
+\renewcommand{\thesubhyp}{\thehyp\alph{subhyp}}
+
+\newcommand{\red}[1]{{\color{red} #1}}
+\newcommand{\blue}[1]{{\color{blue} #1}}
+
+%\newcolumntype{L}[1]{>{\raggedright\let\newline\\arraybackslash\hspace{0pt}}m{#1}}
+%\newcolumntype{C}[1]{>{\centering\let\newline\\arraybackslash\hspace{0pt}}m{#1}}
+%\newcolumntype{R}[1]{>{\raggedleft\let\newline\\arraybackslash\hspace{0pt}}m{#1}}
+
+\geometry{left=0.75in,right=0.75in,top=0.75in,bottom=0.75in}
+
+\usepackage[T1]{fontenc} % section title
+
+% -------- Define new color ------------------------------
+\usepackage{color}  
+\definecolor{darkred}{rgb}{0.5,0,0}
+\definecolor{darkblue}{rgb}{0,0,0.5}
+\definecolor{mygrey}{rgb}{0.85,0.85,0.85} % make grey for the table
+\definecolor{ballblue}{rgb}{0.13, 0.67, 0.8}
+% --------------------------------------------------------
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=darkred,      
+	urlcolor=cyan,
+	%	footnotecolor=black,
+	citecolor=blue
+}
+
+% define footnote color
+%\makeatletter
+%\def\@footnotecolor{red}
+%\define@key{Hyp}{footnotecolor}{%
+% \HyColor@HyperrefColor{#1}\@footnotecolor%
+
+
+\def\@footnotemark{%
+	\leavevmode
+	\ifhmode\edef\@x@sf{\the\spacefactor}\nobreak\fi
+	\stepcounter{Hfootnote}%
+	\global\let\Hy@saved@currentHref\@currentHref
+	\hyper@makecurrent{Hfootnote}%
+	\global\let\Hy@footnote@currentHref\@currentHref
+	\global\let\@currentHref\Hy@saved@currentHref
+	\hyper@linkstart{footnote}{\Hy@footnote@currentHref}%
+	\@makefnmark
+	\hyper@linkend
+	\ifhmode\spacefactor\@x@sf\fi
+	\relax
+}%
+\makeatother
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=darkred,      
+	urlcolor=cyan
+}
+
+\usepackage[dvipsnames]{xcolor}
+
+\sectionfont{\color{Violet}} % MidnightBlue RoyalBlue
+\subsectionfont{\color{Violet}}
+\subsubsectionfont{\color{Violet}}
+
+\renewcommand{\refname}{\textsc{References}}
+
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+
+% Indent the reference
+\makeatletter
+\renewcommand\@biblabel[1]{}
+\renewenvironment{thebibliography}[1]
+{\section*{\refname}%
+	\@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}%
+	\list{\@biblabel{\@arabic\c@enumiv}}%
+	{\settowidth\labelwidth{\@biblabel{#1}}%
+		\leftmargin\labelwidth
+		\advance\leftmargin\labelsep
+		\advance\leftmargin by 2em%
+		\itemindent -2em% 
+		%\itemindent-\labelsep
+		\@openbib@code
+		\usecounter{enumiv}%
+		\let\p@enumiv\@empty
+		\renewcommand\theenumiv{\@arabic\c@enumiv}}%
+	\sloppy
+	\clubpenalty4000
+	\@clubpenalty \clubpenalty
+	\widowpenalty4000%
+	\sfcode`\.\@m}
+{\def\@noitemerr
+	{\@latex@warning{Empty `thebibliography' environment}}%
+	\endlist}
+\makeatother
+
+% allow in-text math break (MUST install)
+\makeatletter
+\def\old@comma{,}
+\catcode`\,=13
+\def,{%
+	\ifmmode%
+	\old@comma\discretionary{}{}{}%
+	\else%
+	\old@comma%
+	\fi%
+}
+\makeatother
+
+\begin{document}
+	\title{Suggested title of our paper:\\ \vspace{4mm} {\sc \bf  Informationally Sensitive Debt and Monetary–Fiscal Interactions}}
+	
+	\date{\small This Version: \today }
+	
+	\maketitle
+
+\doublespacing
+
+
+Our framework studies the joint determination of inflation, sovereign risk, and fiscal  issuance in an environment where the central bank conducts balance sheet policies,  the fiscal authority issues nominal debt, and private agents form beliefs about  default risk under asymmetric information. This environment combines features that have typically been studied separately in the sovereign risk and monetary policy  literature. I think it is worthwhile pursuing what we have done so far.
+
+I think that the paper closet to ours is that of \citet{Bassetto2025}, which I describe below among other relevant papers.
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{Informationally Sensitive Debt and Monetary--Fiscal Policy Interactions}
+
+A growing literature studies how sovereign debt can become informationally sensitive and how beliefs about fiscal backing, policy credibility, and monetary–fiscal interactions determine inflation and sovereign risk. This literature emphasizes that inflation dynamics and debt valuation depend not only on fiscal fundamentals but also on expectations about future policy, institutional credibility, and the informational environment faced by investors. 
+
+Several recent contributions highlight different mechanisms through which beliefs affect inflation and sovereign risk, including \citet{bassetto2019inflation}, \citet{Bassetto2025}, \citet{BianchiIlut2017}, \citet{BianchiMondragon2022}, and \citet{ArellanoBaiMihalache2025}. These papers build on earlier work on expectations-driven crises and fiscal price level determination such as \citet{Calvo1988}, \citet{ColeKehoe2000}, \citet{Uribe2006}, and \citet{CorsettiDedola2016}. 
+
+While these contributions share the idea that beliefs about fiscal backing and policy credibility can drive inflation and sovereign risk, they differ in their modeling of agents, assets, information frictions, and policy interactions. Some papers emphasize endogenous information acquisition, others heterogeneous information across investors, others regime uncertainty and credibility, and more recent work embeds sovereign risk within New Keynesian environments. The following sections discuss these contributions in detail.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\subsubsection*{Comparison with \citet{Bassetto2025}}
+
+\citet{Bassetto2025} develop a model in which informational frictions generate sudden inflation episodes. Their framework explains why inflation may remain largely disconnected from fiscal imbalances for extended periods and then adjust abruptly once fiscal fundamentals deteriorate sufficiently. The model builds on \citet{mackowiak2015business} and emphasizes the role of costly information acquisition and informationally sensitive debt. A central contribution of the paper is to show that inflation dynamics may exhibit long periods of stability followed by sudden jumps, even when fiscal fundamentals evolve smoothly. These dynamics arise because information about fiscal sustainability is endogenously acquired rather than freely available, which introduces non-linearities in belief formation and asset pricing.
+
+\paragraph{Agents.}
+
+The economy features a representative household that saves using nominal government bonds and decides whether to acquire costly information about future fiscal surpluses. Agents face a trade-off between remaining inattentive and paying information costs to learn about fiscal fundamentals. This endogenous attention decision introduces non-linearities in belief formation and asset pricing. When fiscal conditions are perceived to be stable, agents find it optimal to remain inattentive, since the benefits of acquiring additional information are small. However, as fiscal risks increase, the value of acquiring information rises, leading to sudden changes in attention and belief updating. Because agents are otherwise identical, the model abstracts from financial intermediation and from heterogeneity in asset access. As a result, inflation dynamics arise from aggregate belief changes rather than from differences in portfolio composition across agents. The representative agent structure allows the model to isolate the informational channel driving inflation without introducing additional heterogeneity across financial institutions.
+
+\paragraph{Time Horizon and Timing.}
+
+The model features a finite three-period structure. The first period represents the initial environment in which agents hold nominal government debt and form prior beliefs about fiscal fundamentals. In the second period, agents decide whether to acquire costly information and update beliefs accordingly. In the final period, fiscal outcomes are realized and debt repayment occurs. This timing structure allows the model to highlight how information acquisition decisions affect inflation dynamics and debt valuation. The finite horizon also simplifies the analysis of belief updating and the transition between informationally insensitive and informationally sensitive regimes.
+
+\paragraph{Assets and Who Issues Them.}
+
+Nominal government bonds are the only financial asset in the model. These bonds provide a store of value across periods and their valuation depends on expectations about future fiscal surpluses. Because nominal debt is subject to inflation risk, its real value depends on beliefs about fiscal backing and future price level determination. There is no explicit distinction between fiscal and monetary liabilities, and the central bank balance sheet is not modeled separately. This simplified asset structure allows the authors to isolate how expectations about fiscal sustainability influence debt valuation and inflation dynamics. The absence of additional financial assets also implies that portfolio allocation decisions operate solely through government bonds, which magnifies the effect of belief changes on bond prices and inflation.
+
+\paragraph{Monetary Policy.}
+
+Monetary policy is deliberately simplified and plays a limited operational role. Inflation is determined primarily by expectations about future fiscal backing rather than by explicit monetary policy instruments. The absence of a detailed monetary policy rule allows the model to focus on how informational frictions affect price level determination. In this framework, monetary policy does not actively stabilize inflation through conventional interest rate rules. Instead, the price level adjusts to ensure that the real value of government debt is consistent with expected fiscal surpluses. This approach highlights the fiscal theory of the price level in an environment with informational frictions and endogenous attention.
+
+\paragraph{Fiscal Policy.}
+
+Fiscal policy operates through expectations about future surpluses. Government debt is inherited and fiscal authorities do not actively choose issuance as part of a strategic optimization problem. Instead, fiscal fundamentals evolve exogenously and agents form expectations about whether future surpluses will be sufficient to support outstanding nominal debt. Fiscal shocks affect beliefs about fiscal sustainability, which in turn influence inflation dynamics. Because fiscal policy is not modeled as an active strategic decision, the focus remains on how expectations about future fiscal backing affect debt valuation and price level determination.
+
+\paragraph{Informational Asymmetries.}
+
+The informational friction arises from costly information acquisition. Agents decide whether to acquire information about future fiscal surpluses, and this decision depends on the expected benefits of information. When fiscal fundamentals deteriorate sufficiently, agents become more willing to acquire information, making debt informationally sensitive. This endogenous information acquisition generates periods of inattention followed by sudden increases in information gathering. As more agents acquire information, beliefs about fiscal sustainability become more responsive to fiscal news, which amplifies the effect of fiscal shocks on inflation. This mechanism generates non-linear belief dynamics and sudden changes in inflation expectations.
+
+
+
+\paragraph{Economic Mechanism.}
+
+The central mechanism in \citet{Bassetto2025} arises from the interaction between costly information acquisition and the valuation of nominal government debt. Nominal debt behaves like an option-like asset whose value depends on expectations about future fiscal backing. When fiscal fundamentals are strong, agents remain inattentive because the benefits of acquiring information are small. In this region, debt is informationally insensitive, and inflation remains stable despite fluctuations in fiscal variables.
+
+As fiscal fundamentals deteriorate, the value of information increases. Once fiscal risk becomes sufficiently large, agents choose to acquire costly information about future fiscal surpluses. This shift in attention makes debt informationally sensitive, and small changes in fiscal fundamentals lead to large changes in beliefs about fiscal sustainability. As a result, inflation adjusts abruptly as agents revise expectations about the real value of government debt.
+
+Complementarities in information acquisition further amplify these dynamics. When some agents acquire information and revise their beliefs, the resulting price movements increase the incentives for other agents to acquire information. This feedback loop can generate sudden shifts in inflation expectations and multiple equilibria. In equilibrium, the economy may exhibit long periods of stable inflation followed by sudden inflation episodes, even when fiscal fundamentals evolve gradually. This mechanism highlights how informational frictions and endogenous attention can generate abrupt inflation dynamics without large contemporaneous fiscal shocks.
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Comparison with \citet{ArellanoBaiMihalache2025}}
+
+\citet{ArellanoBaiMihalache2025} develop a New Keynesian model with sovereign default risk designed to study the interaction between monetary policy and sovereign spreads in emerging market economies. Their framework integrates sovereign default risk into a standard New Keynesian environment, allowing monetary policy to affect not only inflation and output but also sovereign borrowing costs and default probabilities. The paper highlights how the presence of sovereign risk modifies monetary policy transmission and generates new trade-offs for central banks operating in economies with fragile fiscal positions.
+
+\paragraph{Agents.}
+
+The model features representative households, firms, and a government subject to sovereign default risk. Households supply labor, consume, and hold government bonds, while firms operate under monopolistic competition with nominal rigidities, as in standard New Keynesian models. The government issues debt and chooses whether to default depending on fiscal conditions and borrowing costs. The representative agent structure abstracts from financial intermediation and from heterogeneity in access to government liabilities. As a result, sovereign risk affects the economy primarily through aggregate borrowing costs rather than through differences in asset holdings across agents.
+
+\paragraph{Time Horizon and Timing.}
+
+The framework operates in an infinite horizon environment with forward-looking agents. Each period, the government issues debt, households make consumption and portfolio decisions, and the central bank sets the policy rate according to a Taylor rule. Default decisions depend on current and expected future fiscal conditions. 
+
+\paragraph{Assets and Who Issues Them.}
+
+The government issues nominal debt that is subject to default risk. Investors price this debt based on expected repayment probabilities, generating endogenous sovereign spreads. These spreads fluctuate with macroeconomic conditions and policy expectations. The framework does not explicitly model central bank liabilities such as reserves or central bank balance sheet policies. Instead, government debt is the primary financial asset linking fiscal conditions to monetary policy and macroeconomic outcomes.
+
+\paragraph{Monetary Policy.}
+
+Monetary policy follows a Taylor-type rule, with the central bank adjusting the policy rate in response to inflation and output. The presence of sovereign risk modifies the transmission of monetary policy because changes in interest rates affect borrowing costs and default probabilities. A tightening of monetary policy raises sovereign spreads by increasing borrowing costs, which can worsen fiscal sustainability and raise default risk. Conversely, monetary easing reduces borrowing costs but may increase inflationary pressures. These interactions create additional trade-offs for monetary policy.
+
+\paragraph{Fiscal Policy.}
+
+Fiscal policy is characterized by borrowing needs and default decisions. The government issues debt to finance expenditures and chooses whether to default depending on the cost of repayment relative to default. Fiscal constraints interact with sovereign spreads, as higher borrowing costs increase debt servicing burdens and raise the likelihood of default. Fiscal policy is therefore endogenous, but issuance decisions are driven primarily by financing needs rather than strategic signaling or portfolio considerations.
+
+\paragraph{Informational Asymmetries.}
+
+The model assumes full information. All agents observe fiscal fundamentals, borrowing costs, and default risk. There is no asymmetric information about government type or policy intentions. Sovereign spreads arise from equilibrium pricing of default risk rather than from informational frictions or signaling mechanisms.
+
+
+
+\paragraph{Economic Mechanism.}
+
+The central mechanism in \citet{ArellanoBaiMihalache2025} arises from the interaction between sovereign default risk and monetary policy within a New Keynesian environment. Monetary policy affects sovereign spreads by influencing interest rates and economic activity. When the central bank raises interest rates to combat inflation, borrowing costs for the government increase, raising sovereign spreads and default probabilities. Higher default risk further increases borrowing costs, creating a feedback loop between monetary policy and sovereign risk.
+
+This interaction generates a novel transmission channel for monetary policy. Changes in policy rates affect not only inflation and output but also fiscal sustainability and sovereign spreads. As borrowing costs rise, the government faces increased incentives to default, which can lead to higher inflation expectations and macroeconomic instability. Conversely, accommodative monetary policy reduces borrowing costs and default risk but may generate inflationary pressures.
+
+The presence of sovereign risk therefore creates a trade-off for monetary policy. Tightening policy may stabilize inflation but increase default risk, while easing policy may support fiscal sustainability but risk higher inflation. This mechanism highlights how sovereign risk alters the standard New Keynesian transmission of monetary policy and introduces additional channels through which fiscal conditions influence macroeconomic outcomes.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Comparison with \citet{bassetto2019inflation}}
+
+\citet{bassetto2019inflation} develop a model of sovereign debt crises driven by heterogeneous information and the currency denomination of government debt. Their framework highlights how investors with different information about fiscal fundamentals can generate sudden inflation and default episodes.
+
+\paragraph{Agents.}
+
+The model features Infinite-horizon heterogeneous investors who differ in their information about fiscal fundamentals. Some investors are informed about fiscal risks, while others are not. This heterogeneity generates trading behavior based on private information and creates endogenous price volatility. The presence of informed and uninformed investors introduces strategic interactions in bond markets.
+
+\paragraph{Time Horizon and Timing.}
+
+In each period, the government issues nominal debt and faces an intertemporal budget constraint. Investors form expectations about future fiscal adjustments and price government bonds accordingly. Since nominal debt is long-term, its value depends not only on current fiscal fundamentals but also on expectations about future policy responses. 
+
+Over time, investors receive new information about fiscal fundamentals, such as debt accumulation, fiscal deficits, and macroeconomic conditions. As information arrives, investors update beliefs about whether future fiscal surpluses will be sufficient to stabilize government debt. 
+
+
+
+\paragraph{Assets and Who Issues Them.}
+
+The government issues nominal debt that may be denominated in domestic or foreign currency. The composition of debt affects inflation incentives because domestic currency debt can be diluted through inflation, while foreign currency debt cannot. This distinction introduces an additional dimension of policy credibility.
+
+
+\paragraph{Monetary Policy.}
+
+It is not modeled through an explicit policy rule or central bank balance sheet. Instead, inflation is determined endogenously through the government’s intertemporal budget constraint and investor expectations about fiscal sustainability. The price level adjusts to ensure the real value of nominal government liabilities is consistent with expected future fiscal surpluses. 
+
+Because there is no explicit central bank reaction function, inflation dynamics emerge from fiscal incentives and belief formation. When fiscal fundamentals are strong, investors expect repayment through future surpluses and inflation remains stable. As fiscal conditions deteriorate, investors anticipate inflationary dilution of nominal debt, leading to rising inflation expectations and sovereign risk premia.
+
+\paragraph{Fiscal Policy.}
+
+Fiscal policy determines borrowing and repayment decisions subject to the government’s intertemporal budget constraint. The government issues both domestic currency nominal debt and foreign currency debt, which differ in repayment incentives. Domestic nominal debt can be diluted through inflation, while foreign currency debt is subject to outright default.
+
+As debt accumulates, repayment incentives change and investors revise beliefs about fiscal sustainability. When debt levels are moderate, investors expect fiscal adjustment. As fiscal conditions deteriorate, expectations shift toward inflation or default, raising sovereign spreads and inflation expectations. This interaction between borrowing decisions, debt composition, and beliefs generates nonlinear crisis dynamics.
+
+
+
+\paragraph{Informational Asymmetries.}
+
+Information heterogeneity plays a central role. Informed investors react to fiscal deterioration earlier than uninformed investors, leading to price movements and crisis dynamics.
+
+
+
+\paragraph{Economic Mechanism.}
+
+Crises arise when informed investors revise beliefs about fiscal fundamentals and reduce demand for government debt. This reduction in demand increases borrowing costs and raises inflation incentives. As uninformed investors update beliefs, debt prices fall further, generating self-reinforcing dynamics. The interaction between heterogeneous information and policy incentives generates sudden inflation or default episodes.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Comparison with \citet{BianchiIlut2017}}
+
+\citet{BianchiIlut2017} study how uncertainty about monetary–fiscal policy regimes affects sovereign risk, inflation, and macroeconomic dynamics. Their framework integrates regime uncertainty into a New Keynesian environment and emphasizes how beliefs about future policy interactions between monetary and fiscal authorities influence inflation and sovereign spreads. The model highlights that even when current fiscal conditions are stable, expectations about future policy regimes can generate significant volatility in inflation and sovereign risk.
+
+\paragraph{Agents.}
+
+The model features representative households and firms within a standard New Keynesian framework. Households make consumption, labor supply, and saving decisions, while firms operate under monopolistic competition and face nominal rigidities in price setting. These nominal rigidities generate the standard New Keynesian transmission channels for monetary policy. Financial markets are competitive and complete, and there is no segmentation across agents or differences in access to financial assets. As a result, macroeconomic dynamics are driven by aggregate expectations about policy regimes rather than by heterogeneity in financial positions or balance sheet exposure across agents.
+
+\paragraph{Time Horizon and Timing.}
+
+The model operates in an infinite horizon stochastic environment in which policy regimes evolve according to a Markov process. Each period, agents form expectations about future regime transitions and incorporate these expectations into current decisions. The infinite horizon structure allows beliefs about distant future policy behavior to affect current inflation and sovereign risk. This dynamic environment generates persistent interactions between policy credibility, expectations, and macroeconomic outcomes.
+
+\paragraph{Assets and Who Issues Them.}
+
+Government bonds constitute the primary financial asset in the model. These bonds are used by households as a store of value and are priced according to expectations about future fiscal and monetary policy. The central bank balance sheet is not modeled explicitly, and there is no distinction between fiscal liabilities and central bank liabilities. Instead, the interaction between fiscal and monetary policy operates through expectations about inflation and debt stabilization rather than through balance sheet composition or asset purchases. This structure allows the model to isolate how expectations about policy regimes affect the valuation of government debt and inflation dynamics.
+
+\paragraph{Monetary Policy.}
+
+Monetary policy follows a Taylor-type rule, but the coefficients of the rule depend on the prevailing policy regime. The economy switches between regimes characterized by monetary dominance and fiscal dominance. Under monetary dominance, the central bank responds aggressively to inflation and ensures price stability. Under fiscal dominance, monetary policy becomes less responsive to inflation, and fiscal considerations play a more prominent role in determining inflation dynamics. These regime switches introduce uncertainty about future policy behavior and affect expectations about inflation and sovereign risk. The possibility of switching between regimes implies that even when the economy is currently in a stable monetary regime, expectations about a future transition to fiscal dominance can influence current macroeconomic outcomes.
+
+\paragraph{Fiscal Policy.}
+
+Fiscal policy is represented through rules governing taxation, government spending, and debt stabilization. The fiscal authority adjusts taxes or surpluses in response to debt levels, but the responsiveness of fiscal policy depends on the prevailing regime. Under fiscal dominance, fiscal policy becomes less responsive to debt, raising concerns about debt sustainability. These changes in fiscal responsiveness affect expectations about future inflation and default risk. Fiscal policy therefore interacts with monetary policy through expectations about future regime behavior rather than through strategic issuance or explicit default decisions.
+
+\paragraph{Informational Asymmetries.}
+
+Agents face uncertainty about policy regimes and update beliefs about the likelihood of transitions between monetary and fiscal dominance. This uncertainty is common across agents and does not arise from private information. Instead, agents observe macroeconomic outcomes and use them to infer the probability of regime transitions. This learning process introduces time-varying beliefs about future policy behavior, which in turn affect inflation expectations and sovereign spreads. The informational friction therefore arises from regime uncertainty rather than from heterogeneous information or signaling.
+
+
+
+\paragraph{Economic Mechanism.}
+
+The central mechanism in \citet{BianchiIlut2017} is driven by uncertainty about future monetary–fiscal regimes. When agents assign a higher probability to fiscal dominance, they expect that future fiscal imbalances will be accommodated through inflation rather than through fiscal adjustment. These expectations increase inflation expectations and reduce the real value of government debt. At the same time, concerns about fiscal sustainability increase sovereign spreads, raising borrowing costs for the government.
+
+Higher borrowing costs worsen fiscal conditions, reinforcing expectations of fiscal dominance. This feedback loop generates endogenous volatility in inflation and sovereign spreads. Even in the absence of immediate fiscal deterioration, changes in beliefs about future policy regimes can lead to significant macroeconomic fluctuations.
+
+The interaction between regime uncertainty, inflation expectations, and sovereign spreads creates a mechanism in which expectations about future policy credibility play a central role in determining macroeconomic outcomes. When policy credibility weakens, inflation and sovereign spreads increase, generating instability. Conversely, strong credibility stabilizes expectations and reduces volatility. This mechanism highlights how uncertainty about future policy interactions can drive inflation and sovereign risk even when current fundamentals remain relatively stable.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Comparison with \citet{BianchiMondragon2022}}
+
+\citet{BianchiMondragon2022} study the interaction between sovereign debt rollover risk and monetary policy credibility. Their framework emphasizes how concerns about future monetary accommodation of fiscal imbalances can generate rollover crises, even when fiscal fundamentals are not immediately deteriorating. The paper highlights the role of expectations about future policy interactions in determining sovereign spreads, inflation dynamics, and the stability of government debt markets.
+
+\paragraph{Agents.}
+
+The model features homogeneous investors who purchase government debt and form expectations about future monetary and fiscal policy. These investors are forward-looking and price sovereign debt based on expected repayment probabilities and inflation risk. The framework abstracts from financial intermediation and from segmentation between different types of investors, such as banks and non-banks. As a result, all investors face the same asset pricing conditions and respond uniformly to changes in expected policy behavior. This representative-investor structure allows the authors to focus on how expectations about future policy credibility influence debt markets without introducing additional heterogeneity in portfolio allocation.
+
+\paragraph{Time Horizon and Timing.}
+
+The framework operates in an infinite horizon environment in which the government repeatedly rolls over short-term debt. Each period, investors decide whether to purchase newly issued debt based on expectations about future repayment and inflation. The infinite horizon structure allows expectations about distant future policies to influence current borrowing costs. This dynamic setting generates persistent interactions between fiscal sustainability, monetary credibility, and sovereign risk.
+
+\paragraph{Assets and Who Issues Them.}
+
+The primary asset in the model is short-term sovereign debt issued by the fiscal authority. The short maturity structure plays a central role because it requires the government to repeatedly roll over its debt. Each rollover decision depends on investor confidence and expectations about future policy. Because debt must be refinanced frequently, even small changes in expectations about repayment or inflation can lead to sharp increases in borrowing costs. The framework abstracts from long-term debt, central bank reserves, or other monetary liabilities, thereby isolating the rollover channel as the key driver of sovereign risk.
+
+\paragraph{Monetary Policy.}
+
+Monetary policy is characterized by the degree of monetary independence and the credibility of the central bank's commitment to price stability. The central bank faces a trade-off between stabilizing inflation and accommodating fiscal pressures. If investors expect the central bank to accommodate fiscal imbalances through inflation, sovereign risk increases. Conversely, strong monetary credibility reduces inflation expectations and supports sovereign debt markets. Monetary policy therefore influences sovereign risk indirectly through expectations about future inflation and policy responses.
+
+\paragraph{Fiscal Policy.}
+
+Fiscal policy is characterized by debt issuance and the need to roll over short-term obligations. The government must refinance existing debt each period, making it vulnerable to shifts in investor confidence. Fiscal fundamentals influence rollover risk, but expectations about future policy interactions also play an important role. When investors anticipate future fiscal deterioration or monetary accommodation, borrowing costs rise, which further worsens fiscal sustainability. This feedback loop between borrowing costs and fiscal conditions is central to the model.
+
+\paragraph{Informational Asymmetries.}
+
+The model assumes common information among investors. All agents observe fiscal fundamentals and policy behavior, and there is no asymmetric information about government type or policy intentions. Instead, expectations are driven by common beliefs about future policy credibility. This structure allows the model to isolate expectations-driven dynamics without introducing private information or signaling mechanisms.
+
+
+
+\paragraph{Economic Mechanism.}
+
+The central mechanism in \citet{BianchiMondragon2022} is an expectations driven rollover crisis. Because the government relies on short-term debt, it must refinance its obligations frequently. If investors expect future fiscal imbalances or anticipate that the central bank may accommodate fiscal pressures through inflation, they demand higher yields on government debt. Higher borrowing costs increase the government's financing burden, worsening fiscal sustainability and reinforcing concerns about repayment. 
+
+This feedback loop can generate self-fulfilling crises. Even in the absence of immediate fiscal deterioration, expectations of future policy accommodation can raise borrowing costs sufficiently to trigger a rollover crisis. As borrowing costs rise, fiscal conditions worsen, making the pessimistic expectations more likely to be realized. 
+
+Monetary policy credibility plays a crucial role in this mechanism. A credible commitment to price stability reduces inflation expectations and stabilizes debt markets. However, when monetary independence is weak, investors anticipate inflationary financing of government debt. These expectations raise sovereign spreads and increase rollover risk. 
+
+The interaction between short-term debt maturity, expectations about future policy, and monetary credibility generates endogenous volatility in sovereign spreads and inflation. This mechanism highlights how expectations about monetary–fiscal interactions, rather than current fiscal fundamentals alone, can drive sovereign crises.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{What Is Genuinely New}
+
+Our framework introduces a combination of features that, while individually related to elements studied in the literature, have not been analyzed jointly. In particular, existing papers typically emphasize either informational frictions, sovereign risk, or monetary–fiscal interactions, but rarely integrate these components within a unified framework featuring endogenous debt issuance, central bank balance sheet policies, and signaling.
+
+\paragraph{Central Bank Balance Sheet and Monetary Implementation.}
+
+A first distinguishing feature of our framework is the explicit modeling of the central bank balance sheet. The central bank issues reserves, pays interest on reserves, conducts open market operations, and remits profits to the fiscal authority. These balance sheet interactions create a direct link between monetary policy implementation and fiscal resources, allowing monetary policy to affect fiscal outcomes beyond standard interest rate channels. One can argue that this channel is becoming less important after the global financial crises when QE was enacted, and teh size of teh central bank's balance sheet ballooned.
+
+These institutional features are largely absent in the informationally sensitive debt literature. For example, \citet{Bassetto2025} and \citet{bassetto2019inflation} abstract from central bank balance sheets and model inflation as determined by fiscal backing and expectations. Similarly, \citet{BianchiIlut2017} and \citet{BianchiMondragon2022} model monetary policy through interest rate rules or credibility regimes without explicitly modeling reserves or balance sheet interactions. 
+
+Even in \citet{ArellanoBaiMihalache2025}, which incorporates sovereign risk into a New Keynesian environment, the central bank operates through a conventional Taylor rule and does not explicitly model reserves, balance sheet policies, or remittances. As a result, monetary–fiscal interactions in that framework arise through interest rate effects on sovereign spreads rather than through balance sheet interactions between monetary and fiscal authorities.
+
+\paragraph{Endogenous Nominal Debt Issuance.}
+
+A second novel feature is that the fiscal authority optimally chooses nominal debt issuance. Debt issuance affects financing needs, default incentives, and beliefs about fiscal sustainability. This strategic issuance decision introduces an additional channel through which fiscal policy interacts with inflation and sovereign risk.
+
+Most existing papers abstract from endogenous issuance decisions. In \citet{Bassetto2025}, government debt is inherited and fiscal policy operates through expectations about future surpluses. In \citet{BianchiIlut2017}, fiscal policy is modeled through tax and surplus rules rather than issuance choices. In \citet{BianchiMondragon2022}, the emphasis is on rollover risk rather than optimal issuance. 
+
+Similarly, in \citet{ArellanoBaiMihalache2025}, debt issuance is driven by financing needs and borrowing constraints rather than by strategic signaling or equilibrium selection. Debt evolves endogenously in response to fiscal shocks, but the fiscal authority does not choose issuance to influence beliefs or inflation outcomes.
+
+\paragraph{Sovereign Default and Inflation Interaction.}
+
+Our framework allows inflation to affect repayment incentives and default risk directly. Inflation reduces the real value of nominal debt, which alters the incentives to repay and influences sovereign risk. This creates a joint determination of inflation and sovereign default risk.
+
+While \citet{bassetto2019inflation} consider the interaction between inflation and default, their framework focuses on heterogeneous information and currency denomination of debt rather than monetary–fiscal interactions through central bank balance sheets. 
+
+Similarly, \citet{ArellanoBaiMihalache2025} study sovereign default risk in a New Keynesian environment and show how monetary policy affects default probabilities through borrowing costs. However, inflation affects default risk indirectly through macroeconomic dynamics rather than directly through the real value of nominal debt and strategic issuance decisions. Moreover, their framework does not incorporate informational frictions or signaling mechanisms.
+
+\paragraph{Asymmetric Information and Signaling Through Issuance.}
+
+Another key feature of our framework is the introduction of asymmetric information about government type. Debt issuance becomes a signaling device through which the fiscal authority conveys private information about fiscal fundamentals or repayment incentives.
+
+This informational structure differs from those studied in the literature. \citet{Bassetto2025} emphasize costly information acquisition by agents, while \citet{bassetto2019inflation} emphasize heterogeneous information across investors. \citet{BianchiIlut2017} introduce regime uncertainty, and \citet{BianchiMondragon2022} emphasize credibility and expectations about future policy. 
+
+By contrast, \citet{ArellanoBaiMihalache2025} assume full information and focus on sovereign default risk within a New Keynesian framework. In their model, sovereign spreads arise from equilibrium pricing of default risk rather than from signaling or asymmetric information. As a result, their framework does not generate informationally sensitive debt through signaling mechanisms.
+
+\paragraph{Monetary–Fiscal Interaction Through Policy Rules and Balance Sheets.}
+
+Our framework also introduces a richer interaction between monetary and fiscal policy. Monetary policy operates through reserve remuneration and potentially a Taylor-type rule, while fiscal policy operates through endogenous debt issuance and repayment decisions. Inflation must therefore satisfy both monetary and fiscal equilibrium conditions.
+
+In contrast, existing papers typically focus on one dimension of monetary–fiscal interaction. \citet{BianchiIlut2017} emphasize regime switching between monetary and fiscal dominance. \citet{BianchiMondragon2022} focus on monetary credibility and rollover risk. \citet{ArellanoBaiMihalache2025} highlight how monetary policy affects sovereign spreads through borrowing costs. However, these frameworks do not incorporate simultaneous interactions between central bank balance sheets, signaling through issuance, and default incentives.
+
+\paragraph{Endogenous Regime Outcomes Without Exogenous Switching.}
+
+Finally, our framework generates regime-like outcomes endogenously. Inflation, sovereign risk, and policy interactions emerge from equilibrium behavior rather than from exogenous regime switching or Markov transitions.
+
+This contrasts with regime-switching models such as \citet{DavigLeeper2007}, \citet{ChungDavigLeeper2007}, and \citet{BianchiMelosi2014,BianchiMelosi2019}, where policy regimes evolve exogenously. It also differs from learning models such as \citet{Bassetto2025}, where agents acquire information about fiscal fundamentals. 
+
+Similarly, \citet{ArellanoBaiMihalache2025} generate sovereign risk dynamics through macroeconomic shocks and borrowing constraints rather than through endogenous signaling or equilibrium regime selection.
+
+\medskip
+
+Taken together, our framework combines:
+
+\begin{itemize}
+	\item Central bank balance sheet policies
+	\item Endogenous nominal debt issuance
+	\item Sovereign default risk
+	\item Asymmetric information and signaling
+	\item Monetary policy rules
+\end{itemize}
+
+While individual elements of this list appear in different strands of the literature, this combination has not been studied jointly in the informationally sensitive debt or monetary–fiscal interaction literature.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\singlespacing
+\bibliographystyle{plainnat}
+\bibliography{sovereign_monetary_literature}
+
+\end{document}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{Comparison with Learning and Regime-Switching Models}
+
+A large literature studies monetary–fiscal interactions through regime switching, learning, or expectations-driven dynamics. Standard regime-switching models such as \citet{DavigLeeper2007}, \citet{ChungDavigLeeper2007}, and \citet{BianchiMelosi2014,BianchiMelosi2019} assume that policy regimes evolve according to exogenous stochastic processes.
+
+\citet{BianchiIlut2017} introduce uncertainty about fiscal and monetary regimes, while \citet{BianchiMondragon2022} emphasize credibility and rollover risk. \citet{bassetto2019inflation} introduce heterogeneous information, and \citet{Bassetto2025} introduce endogenous information acquisition.
+
+These frameworks generate inflation and sovereign risk dynamics through belief changes about policy regimes or fiscal backing.
+
+
