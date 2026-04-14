@@ -1,0 +1,94 @@
+\begin{thebibliography}{16}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Arellano et~al.(2026)Arellano, Bai, and Mihalache]{ArellanoBaiMihalache2025}
+Cristina Arellano, Yan Bai, and Gabriel~M. Mihalache.
+\newblock {\textcolor{blue}{Monetary Policy and Sovereign Risk in Emerging Economies (NK-Default)}}.
+\newblock \emph{{\textcolor{blue}{The Quarterly Journal of Economics}}}, pages~{\textcolor{blue}{1--69}}, 2026.
+\newblock \doi{{\textcolor{blue}{10.1093/qje/qjag012}}}.
+\newblock {\textcolor{blue}{Advance Access publication on February 23, 2026}}.
+
+\bibitem[Bassetto and Galli(2019)]{bassetto2019inflation}
+Marco Bassetto and Carlo Galli.
+\newblock Is inflation default? the role of information in debt crises.
+\newblock \emph{American Economic Review}, 109\penalty0 (10):\penalty0 3556--3584, 2019.
+
+\bibitem[Bassetto and Miller(2025)]{Bassetto2025}
+Marco Bassetto and David~S. Miller.
+\newblock A monetary-fiscal theory of sudden inflations.
+\newblock \emph{The Quarterly Journal of Economics}, 140\penalty0 (3):\penalty0 1959--2000, 2025.
+\newblock \doi{10.1093/qje/qjaf012}.
+
+\bibitem[Bianchi and Ilut(2017)]{BianchiIlut2017}
+Francesco Bianchi and Cosmin Ilut.
+\newblock Monetary/fiscal policy mix and agents' beliefs.
+\newblock \emph{{\textcolor{blue}{Review of Economic Dynamics}}}, {\textcolor{blue}{26}}:\penalty0 {\textcolor{blue}{113--139}}, 2017.
+
+\bibitem[Bianchi and Melosi(2014)]{BianchiMelosi2014}
+Francesco Bianchi and Leonardo Melosi.
+\newblock Dormant shocks and fiscal virtue.
+\newblock \emph{NBER Macroeconomics Annual}, 28\penalty0 (1):\penalty0 1--46, 2014.
+
+\bibitem[Bianchi and Melosi(2019)]{BianchiMelosi2019}
+Francesco Bianchi and Leonardo Melosi.
+\newblock The dire effects of the lack of monetary and fiscal coordination.
+\newblock \emph{Journal of Monetary Economics}, 104:\penalty0 1--22, 2019.
+
+\bibitem[Bianchi and Mondragon(2022)]{BianchiMondragon2022}
+Javier Bianchi and Jorge Mondragon.
+\newblock Monetary independence and rollover crises.
+\newblock \emph{The Quarterly Journal of Economics}, 137\penalty0 (1):\penalty0 435--491, 2022.
+\newblock \doi{10.1093/qje/qjab025}.
+
+\bibitem[Calvo(1988)]{Calvo1988}
+Guillermo~A. Calvo.
+\newblock Servicing the public debt: The role of expectations.
+\newblock \emph{American Economic Review}, 78\penalty0 (4):\penalty0 647--661, 1988.
+
+\bibitem[Chung et~al.(2007)Chung, Davig, and Leeper]{ChungDavigLeeper2007}
+Hess Chung, Troy Davig, and Eric~M. Leeper.
+\newblock Monetary and fiscal policy switching.
+\newblock \emph{Journal of Money, Credit and Banking}, 39\penalty0 (4):\penalty0 809--842, 2007.
+
+\bibitem[Cole and Kehoe(2000)]{ColeKehoe2000}
+Harold~L. Cole and Timothy~J. Kehoe.
+\newblock Self-fulfilling debt crises.
+\newblock \emph{Review of Economic Studies}, 67\penalty0 (1):\penalty0 91--116, 2000.
+
+\bibitem[Corsetti and Dedola(2016)]{CorsettiDedola2016}
+Giancarlo Corsetti and Luca Dedola.
+\newblock The mystery of the printing press: Monetary policy and self-fulfilling debt crises.
+\newblock \emph{Journal of the European Economic Association}, 14\penalty0 (6):\penalty0 1329--1371, 2016.
+
+\bibitem[Davig and Leeper(2007)]{DavigLeeper2007}
+Troy Davig and Eric~M. Leeper.
+\newblock Generalizing the taylor principle.
+\newblock \emph{American Economic Review}, 97\penalty0 (3):\penalty0 607--635, 2007.
+
+\bibitem[Espino et~al.(2025)Espino, Kozlowski, Martin, and Sanchez]{EspinoKozlowskiMartinSanchez2025}
+Emilio Espino, Julian Kozlowski, Fernando~M. Martin, and Juan~M. Sanchez.
+\newblock Domestic policies and sovereign default.
+\newblock \emph{American Economic Journal: Macroeconomics}, 17\penalty0 (3):\penalty0 74--113, 2025.
+\newblock \doi{10.1257/mac.20220294}.
+
+\bibitem[Hurtado et~al.(2023)Hurtado, Nu{\~n}o, and Thomas]{HurtadoNunoThomas2022}
+Samuel Hurtado, Galo Nu{\~n}o, and Carlos Thomas.
+\newblock Monetary policy and sovereign debt sustainability.
+\newblock \emph{Journal of the European Economic Association}, 21\penalty0 (1):\penalty0 293--325, 2023.
+\newblock \doi{10.1093/jeea/jvac035}.
+
+\bibitem[Ma{\'c}kowiak and Wiederholt(2015)]{mackowiak2015business}
+Bartosz Ma{\'c}kowiak and Mirko Wiederholt.
+\newblock Business cycle dynamics under rational inattention.
+\newblock \emph{The Review of Economic Studies}, 82\penalty0 (4):\penalty0 1502--1532, 2015.
+
+\bibitem[Uribe(2006)]{Uribe2006}
+Martin Uribe.
+\newblock A fiscal theory of sovereign risk.
+\newblock \emph{Journal of Monetary Economics}, 53\penalty0 (8):\penalty0 1857--1875, 2006.
+
+\end{thebibliography}
