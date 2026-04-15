@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex comparison-literature-monetary-fiscal"] 1776180857.44919 "comparison-literature-monetary-fiscal.aux" "comparison-literature-monetary-fiscal.bbl" "comparison-literature-monetary-fiscal" 1776180861.25056 0
+["bibtex comparison-literature-monetary-fiscal"] 1776182135.11197 "comparison-literature-monetary-fiscal.aux" "comparison-literature-monetary-fiscal.bbl" "comparison-literature-monetary-fiscal" 1776182138.56449 0
   "./sovereign_monetary_literature.bib" 1776180829 9238 0ac8cbc5900d1b3873aaa790490a1b5a ""
   "c:/texlive/2025/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1747030985 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "comparison-literature-monetary-fiscal.aux" 1776180859 9269 2986e1eb5cf6254cf258e1b11422e6a7 "pdflatex"
+  "comparison-literature-monetary-fiscal.aux" 1776182137 10387 77a9f1b231d257828b1812ea71894e7d "pdflatex"
   (generated)
   "comparison-literature-monetary-fiscal.bbl"
   "comparison-literature-monetary-fiscal.blg"
   (rewritten before read)
-["pdflatex"] 1776180858.06683 "d:/MonetaryFiscal/docs/memo/comparison-literature-monetary-fiscal.tex" "comparison-literature-monetary-fiscal.pdf" "comparison-literature-monetary-fiscal" 1776180861.25199 0
+["pdflatex"] 1776182135.74673 "d:/MonetaryFiscal/docs/memo/comparison-literature-monetary-fiscal.tex" "comparison-literature-monetary-fiscal.pdf" "comparison-literature-monetary-fiscal" 1776182138.56518 0
   "c:/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1747027985 2971 def0b6c1f0b107b3b936def894055589 ""
   "c:/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1747027985 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1747029124 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -147,11 +147,11 @@
   "c:/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1747033816 5569470 f263a82cf6bb394f5bc87b63f38b78df ""
   "c:/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1747034022 3567314 bc901764aad9d4959646998e2f92ab95 ""
   "c:/texlive/2025/texmf.cnf" 1747033790 713 e69b156964470283e0530f5060668171 ""
-  "comparison-literature-monetary-fiscal.aux" 1776180859 9269 2986e1eb5cf6254cf258e1b11422e6a7 "pdflatex"
-  "comparison-literature-monetary-fiscal.bbl" 1776180858 4666 b6644067a614f4e4b0744b49682b5f58 "bibtex comparison-literature-monetary-fiscal"
-  "comparison-literature-monetary-fiscal.out" 1776180859 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "comparison-literature-monetary-fiscal.tex" 1776180849 44440 4afd05233ad11506c91677bc5223f4ab ""
-  "d:/MonetaryFiscal/docs/memo/comparison-literature-monetary-fiscal.tex" 1776180849 44440 4afd05233ad11506c91677bc5223f4ab ""
+  "comparison-literature-monetary-fiscal.aux" 1776182137 10387 77a9f1b231d257828b1812ea71894e7d "pdflatex"
+  "comparison-literature-monetary-fiscal.bbl" 1776182135 4666 b6644067a614f4e4b0744b49682b5f58 "bibtex comparison-literature-monetary-fiscal"
+  "comparison-literature-monetary-fiscal.out" 1776182136 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "comparison-literature-monetary-fiscal.tex" 1776182133 50589 b9876e4c88678bfb8023dd6ddff42650 ""
+  "d:/MonetaryFiscal/docs/memo/comparison-literature-monetary-fiscal.tex" 1776182133 50589 b9876e4c88678bfb8023dd6ddff42650 ""
   (generated)
   "comparison-literature-monetary-fiscal.aux"
   "comparison-literature-monetary-fiscal.log"
