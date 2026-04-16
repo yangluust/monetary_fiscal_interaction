@@ -651,37 +651,20 @@ P_0 X + Q^B_0(B)\big(B-B^{CB}_0\big)+M_0.
 \]
 Holding central-bank bond purchases fixed, an increase in $M_0$ raises the fiscal authority's initial resources one-for-one and can substitute for risky sovereign issuance.
 
-The problem is that the future cost of this reserve finance does not feed back into the government's repayment-default comparison. The period-$1$ and period-$2$ central-bank constraints imply
+The problem is that the model makes reserve finance cheaper than sovereign debt finance for a given amount of period-$0$ resources. To raise one extra unit of resources with reserves, the consolidated public sector issues one extra unit of reserves today and owes the gross reserve return $(1+i^R_0)$ next period. By contrast, to raise one extra unit of resources through sovereign bonds, the fiscal authority must issue face value $1/Q^B_0(B)$, so the gross financing cost is $1/Q^B_0(B)$. The bond-reserve funding wedge is especially transparent at time $1$:
 \[
-M_1 = Q^B_1 B^{CB}_1 + (1+i^R_0)M_0,
-\]
-\[
-T^{CB,R}_2 = B^{CB}-(1+i^R_1)M_1,
+\frac{1}{Q^B_1}=\frac{1+i^R_1+\tau_1}{1-\bar D_1(B)}
+> 1+i^R_1,
 \qquad
-T^{CB,D}_2 = -(1+i^R_1)M_1.
+Q^B_0(B)=\frac{E_0[Q^B_1\mid B]}{1+i^R_0+\tau_0}.
 \]
-Hence
-\[
-T^{CB,R}_2-T^{CB,D}_2 = B^{CB},
-\]
-so the reserve liability $(1+i^R_1)M_1$ enters repayment and default symmetrically and cancels out of the default condition:
-\[
-P_2(Y+\phi)+T^{CB,R}_2-B<P_2\kappa+T^{CB,D}_2
-\]
-\[
-\Longleftrightarrow
-\qquad
-P_2(Y+\phi)+B^{CB}-B<P_2\kappa.
-\]
-As a result, default probabilities depend only on
-\[
-D\!\left(\kappa_i + \frac{B-B^{CB}}{P_2} - \phi_i\right),
-\]
-not directly on $M_0$ or $M_1$. Since reserves are voluntarily held, banks face no explicit reserve-holding friction, and the central bank can run negative net worth, sufficiently large reserve issuance can in principle eliminate the need for risky sovereign borrowing. 
+Thus sovereign financing carries a higher yield than reserves because bond prices are discounted by default risk and, with risk-averse banks, by the additional premium $\tau_t$. Reserve issuance therefore gives the consolidated public sector a cheaper funding instrument than risky sovereign debt.
+
+The result is that reserve issuance looks too attractive: it finances period-$0$ spending at a lower effective cost than risky sovereign debt, yet the associated reserve liabilities do not tighten the government's future repayment-default tradeoff. Since reserves are voluntarily held, banks face no explicit reserve-holding friction, and the central bank can run negative net worth, sufficiently large reserve issuance can in principle eliminate the need for risky sovereign borrowing. 
 
 
 
-\subsubsection*{How the Literature Motivates These Two Disciplines}
+\subsubsection*{How the Literature Disciplines Reserve Issuance}
 
 \paragraph{Reserve demand.} The IMF paper by \citet{ChenKourentzesVeyrune2023} is mainly an operational paper, not a sovereign-default or DSGE paper, but it provides a useful motivation for imposing a downward-sloping reserve demand curve. Its basic mechanism is a buffer-stock or liquidity-insurance story. Banks hold reserves because reserves are the most liquid asset in the system and help them absorb unexpected payment outflows, satisfy reserve or regulatory needs, and avoid costly short-term funding when liquidity is tight. As aggregate reserves rise, the marginal value of one more unit of reserves falls because banks are already better insured against settlement shocks. In a corridor system this implies that the short-term rate moves down toward the deposit facility rate as reserves become abundant, while when reserves are scarce banks are closer to borrowing at the lending facility and the marginal value of reserves is high.
 
@@ -717,7 +700,7 @@ If the central bank can potentially receive payments from the fiscal authority w
 
 So Reis's point is that without fiscal backing, negative remittances are no longer just an accounting mirror image. They become a genuine policy constraint that limits balance-sheet expansion.
 
-Taken together, these two disciplines operate on different margins. A reserve-demand curve limits reserve issuance from the private side, because banks stop wanting extra reserves unless they receive enough liquidity benefit or enough remuneration. A central-bank solvency constraint limits reserve issuance from the public side, because the Treasury cannot treat arbitrarily negative future remittances as harmless if the central bank cannot roll losses forever without reserve explosion or extra inflation. In the current draft, there is effectively neither discipline: banks can hold reserves freely with no explicit diminishing liquidity value, and the central bank can run negative net worth and make negative transfers with no fiscal-support limit. That is why reserve issuance currently looks too powerful.
+\paragraph{Two disciplines.} Taken together, these two disciplines operate on different margins. A reserve-demand curve limits reserve issuance from the private side, because banks stop wanting extra reserves unless they receive enough liquidity benefit or enough remuneration. A central-bank solvency constraint limits reserve issuance from the public side, because the Treasury cannot treat arbitrarily negative future remittances as harmless if the central bank cannot roll losses forever without reserve explosion or extra inflation. In the current draft, there is effectively neither discipline: banks can hold reserves freely with no explicit diminishing liquidity value, and the central bank can run negative net worth and make negative transfers with no fiscal-support limit. That is why reserve issuance currently looks too powerful.
 
 \subsubsection*{A Downward-Sloping Reserve Demand Curve}
 
@@ -742,6 +725,9 @@ i^R_t = \mathcal{I}_t\!\left(\frac{m_t}{P_t},\text{state}\right),
 \]
 and let reserve quantities be pinned down endogenously by bank demand and reserve-market clearing rather than chosen independently by policy.
 
+
+\textcolor{red}{Yang to Pedro: Is there a microfoundation for this liquidity channel in monetarist models?}
+
 \subsubsection*{A Central-Bank Solvency Constraint}
 
 A second minimal way to discipline reserve issuance is to impose a central-bank solvency or fiscal-support constraint. A reduced-form analogue in the present finite-horizon environment is to impose a lower bound on period-$2$ remittances,
@@ -761,6 +747,9 @@ The default-state condition is tighter, so
 (1+i^R_1)M_1 \le \bar{\Xi}.
 \]
 Under this solvency bound, reserve issuance can still help finance the government, but only up to the amount that can be credibly serviced without unbounded future losses or explicit fiscal recapitalization.
+
+
+\textcolor{red}{Yang to Pedro: This way of imposing a solvency constraint seems to be too mechanical. It is no better to setting an upper bound for $M_0$. }
 
 
 \section*{Some Additional Observations}
