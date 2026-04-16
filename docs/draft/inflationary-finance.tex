@@ -679,7 +679,49 @@ D\!\left(\kappa_i + \frac{B-B^{CB}}{P_2} - \phi_i\right),
 \]
 not directly on $M_0$ or $M_1$. Since reserves are voluntarily held, banks face no explicit reserve-holding friction, and the central bank can run negative net worth, sufficiently large reserve issuance can in principle eliminate the need for risky sovereign borrowing. 
 
-A first minimal way to discipline this margin is to introduce a downward-sloping reserve demand curve, motivated by the idea that reserves provide liquidity services to banks, help absorb payment shocks, and satisfy reserve or regulatory needs \citep{ChenKourentzesVeyrune2023}. A simple way to formalize this is to let banks derive utility not only from consumption but also from real reserve holdings:
+
+
+\subsubsection*{How the Literature Motivates These Two Disciplines}
+
+\paragraph{Reserve demand.} The IMF paper by \citet{ChenKourentzesVeyrune2023} is mainly an operational paper, not a sovereign-default or DSGE paper, but it provides a useful motivation for imposing a downward-sloping reserve demand curve. Its basic mechanism is a buffer-stock or liquidity-insurance story. Banks hold reserves because reserves are the most liquid asset in the system and help them absorb unexpected payment outflows, satisfy reserve or regulatory needs, and avoid costly short-term funding when liquidity is tight. As aggregate reserves rise, the marginal value of one more unit of reserves falls because banks are already better insured against settlement shocks. In a corridor system this implies that the short-term rate moves down toward the deposit facility rate as reserves become abundant, while when reserves are scarce banks are closer to borrowing at the lending facility and the marginal value of reserves is high.
+
+\begin{quote}\small
+The demand for reserves describes the rate at which banks are ready to borrow and lend reserve as a function of aggregated reserves in the system. Banks seek to keep a certain buffer of reserves to absorb unexpected payments out of their account at the central bank. Their demand for reserves depends on the risk and predictability of payment shocks, interbank market functioning, the cost of liquidity-management errors, and reserve or regulatory requirements. With standing lending and deposit facilities, short-term rates are expected to decline as reserves increase, converging to the deposit facility rate.
+\end{quote}
+
+The paper also stresses that more reserves are not always better. Excess reserves are low-yielding assets on bank balance sheets and can distort money-market intermediation, so there is a cost to holding too much liquidity. That is why the reserve-demand curve is not flat everywhere: reserves provide insurance, but with diminishing marginal benefit. For the present draft, the key implication is that a reserve-demand curve is naturally motivated by liquidity services, that it slopes down because the marginal convenience yield of reserves falls as reserve buffers rise, and that in practice it is often represented by a sigmoid or logistic schedule because rates are bounded by lending and deposit facilities.
+
+\paragraph{Central-bank solvency.} The motivation for a central-bank solvency or fiscal-support constraint is different. The relevant point in \citet{DelNegroSims2015}, \citet{HallReis2015}, and \citet{Reis2017QE} is that a central bank can always make a payment today by issuing more reserves, so solvency is not about running out of cash. The economically relevant question is whether the central bank can keep following its policy rule without reserve liabilities exploding or without being forced to generate extra inflation.
+
+\citet{DelNegroSims2015} give the clearest statement of the distinction between fiscal backing and fiscal support. Their argument is that even if fiscal policy backs the price level in the fiscal-theory sense, the central bank may still need Treasury recapitalization to keep hitting its inflation target if its balance sheet is badly impaired.
+
+\begin{quote}\small
+Fiscal backing requires that explosive inflationary or deflationary behavior of the price level be ruled out by fiscal policy. But even when fiscal policy guarantees a unique price level and inflation is driven by monetary policy, it is possible that the central bank, if its balance sheet is sufficiently impaired, may need recapitalization in order to maintain its commitment to a policy rule or an inflation target. Such recapitalization is a within-government transaction, unrelated to whether fiscal backing is present.
+\end{quote}
+
+Their extra step is important for the present note. If the central bank has a large long-duration balance sheet, then higher expected inflation or higher interest rates reduce the value of its assets. If the Treasury will not support it, the central bank may need more seigniorage to cover the hole, and that can validate the inflation expectations. In that sense, solvency becomes a source of indeterminacy rather than a mere accounting issue.
+
+\citet{HallReis2015} frame the issue more institutionally. They define central-bank financial stability by whether reserves stay stationary rather than drift upward forever. The key object in their analysis is the charter or dividend rule.
+
+\begin{quote}\small
+A central bank can always meet its obligation to deliver the mandated dividend to the government because it has the unlimited power to borrow from commercial banks by issuing reserves. But a central bank cannot continue as a functioning financial institution independent of the government if it appears to be on a path of issuing an exploding volume of reserves. In that case, the central bank would be engaging in a Ponzi scheme.
+\end{quote}
+
+So for Hall and Reis, the relevant solvency constraint is that if losses must always be financed by more interest-bearing reserves, and the institutional rules do not allow negative dividends, recapitalization, or make-up reductions in future remittances, then reserves can drift explosively. That is the relevant notion of insolvency.
+
+\citet{Reis2017QE} use the same logic as a limitation on quantitative easing. In his baseline, if the Treasury fully backs the central bank, losses are irrelevant for the consolidated government, so quantitative easing can be very large. But in a fiscal crisis that assumption is no longer innocuous.
+
+\begin{quote}\small
+If the central bank can potentially receive payments from the fiscal authority when net income is negative, then it can implement quantitative easing while always staying solvent. In a fiscal crisis, though, the fiscal authority may not be willing to provide this fiscal backing to the central bank, which puts a solvency constraint on the central bank's actions, in the form of a lower bound on the possibly negative dividends to the fiscal authority.
+\end{quote}
+
+So Reis's point is that without fiscal backing, negative remittances are no longer just an accounting mirror image. They become a genuine policy constraint that limits balance-sheet expansion.
+
+Taken together, these two disciplines operate on different margins. A reserve-demand curve limits reserve issuance from the private side, because banks stop wanting extra reserves unless they receive enough liquidity benefit or enough remuneration. A central-bank solvency constraint limits reserve issuance from the public side, because the Treasury cannot treat arbitrarily negative future remittances as harmless if the central bank cannot roll losses forever without reserve explosion or extra inflation. In the current draft, there is effectively neither discipline: banks can hold reserves freely with no explicit diminishing liquidity value, and the central bank can run negative net worth and make negative transfers with no fiscal-support limit. That is why reserve issuance currently looks too powerful.
+
+\subsubsection*{A Downward-Sloping Reserve Demand Curve}
+
+A first minimal way to discipline this margin is to introduce a downward-sloping reserve demand curve. A simple way to formalize this is to let banks derive utility not only from consumption but also from real reserve holdings:
 \[
 u(C^A_0)+\beta u(C^A_1)+\beta^2\mathbb{E}_0[u(C^A_2)]
 + \chi_0 \ell\!\left(\frac{m_0}{P_0}\right)
@@ -700,7 +742,9 @@ i^R_t = \mathcal{I}_t\!\left(\frac{m_t}{P_t},\text{state}\right),
 \]
 and let reserve quantities be pinned down endogenously by bank demand and reserve-market clearing rather than chosen independently by policy.
 
-A second minimal way to discipline reserve issuance is to impose a central-bank solvency or fiscal-support constraint. Following the distinction emphasized by \citet{DelNegroSims2015}, \citet{HallReis2015}, and \citet{Reis2017QE}, fiscal backing of the price level is not the same as fiscal support for the central bank. Even if monetary policy determines inflation in equilibrium, a sufficiently impaired central-bank balance sheet may require recapitalization or else force the central bank to tolerate higher inflation or exploding reserve liabilities. A reduced-form analogue in the present finite-horizon environment is to impose a lower bound on period-$2$ remittances,
+\subsubsection*{A Central-Bank Solvency Constraint}
+
+A second minimal way to discipline reserve issuance is to impose a central-bank solvency or fiscal-support constraint. A reduced-form analogue in the present finite-horizon environment is to impose a lower bound on period-$2$ remittances,
 \[
 T^{CB,R}_2 \ge -\bar{\Xi},
 \qquad

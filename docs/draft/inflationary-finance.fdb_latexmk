@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex inflationary-finance"] 1776336038.8458 "inflationary-finance.aux" "inflationary-finance.bbl" "inflationary-finance" 1776337033.04848 0
+["bibtex inflationary-finance"] 1776337708.86393 "inflationary-finance.aux" "inflationary-finance.bbl" "inflationary-finance" 1776337712.19916 0
   "../memo/sovereign_monetary_literature.bib" 1776335272 10472 e19c194c5b0c03632d83e9c29b4bb40a ""
   "c:/texlive/2025/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1747030985 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "inflationary-finance.aux" 1776337031 2070 aef2633b6a5fcda83470766f4758eff6 "pdflatex"
+  "inflationary-finance.aux" 1776337710 2355 37e7ea13baf3c6f9763fac108b85bde8 "pdflatex"
   (generated)
   "inflationary-finance.bbl"
   "inflationary-finance.blg"
   (rewritten before read)
-["pdflatex"] 1776337030.18901 "d:/MonetaryFiscal/docs/draft/inflationary-finance.tex" "inflationary-finance.pdf" "inflationary-finance" 1776337033.04916 0
+["pdflatex"] 1776337709.4484 "d:/MonetaryFiscal/docs/draft/inflationary-finance.tex" "inflationary-finance.pdf" "inflationary-finance" 1776337712.19984 0
   "c:/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1747027985 2971 def0b6c1f0b107b3b936def894055589 ""
   "c:/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1747027985 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1747029124 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -163,11 +163,11 @@
   "c:/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1747033816 5569470 f263a82cf6bb394f5bc87b63f38b78df ""
   "c:/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1747034022 3567314 bc901764aad9d4959646998e2f92ab95 ""
   "c:/texlive/2025/texmf.cnf" 1747033790 713 e69b156964470283e0530f5060668171 ""
-  "d:/MonetaryFiscal/docs/draft/inflationary-finance.tex" 1776337029 39442 05566cd9d6d4206295914fa6153f12db ""
-  "inflationary-finance.aux" 1776337031 2070 aef2633b6a5fcda83470766f4758eff6 "pdflatex"
-  "inflationary-finance.bbl" 1776336039 1307 665e8c8ff5947d6fd7346e5d2fcc9af3 "bibtex inflationary-finance"
-  "inflationary-finance.out" 1776337031 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "inflationary-finance.tex" 1776337029 39442 05566cd9d6d4206295914fa6153f12db ""
+  "d:/MonetaryFiscal/docs/draft/inflationary-finance.tex" 1776337704 46036 185696aaf79b0c9cf9e3e0d48d940f4c ""
+  "inflationary-finance.aux" 1776337710 2355 37e7ea13baf3c6f9763fac108b85bde8 "pdflatex"
+  "inflationary-finance.bbl" 1776337709 1301 152f3eb5df22d0b0b418c94f48a38603 "bibtex inflationary-finance"
+  "inflationary-finance.out" 1776337710 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "inflationary-finance.tex" 1776337704 46036 185696aaf79b0c9cf9e3e0d48d940f4c ""
   (generated)
   "inflationary-finance.aux"
   "inflationary-finance.log"
