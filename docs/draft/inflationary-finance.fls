@@ -1,8 +1,8 @@
-PWD D:/MonetaryFiscal/docs/draft
+PWD d:/MonetaryFiscal/docs/draft
 INPUT c:/texlive/2025/texmf.cnf
 INPUT c:/texlive/2025/texmf-dist/web2c/texmf.cnf
 INPUT c:/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT inflationary-finance.tex
+INPUT d:/MonetaryFiscal/docs/draft/inflationary-finance.tex
 OUTPUT inflationary-finance.log
 INPUT c:/texlive/2025/texmf-dist/tex/latex/base/article.cls
 INPUT c:/texlive/2025/texmf-dist/tex/latex/base/article.cls
