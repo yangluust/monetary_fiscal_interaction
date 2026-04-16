@@ -637,11 +637,86 @@ However, the two mechanisms generate different comparative statics for the effec
 
 \subsection*{A Limitation of the Current Setup and Two Minimal Fixes}
 
-A limitation of the current setup is that period-$0$ reserve issuance can relax the government's financing need without a corresponding discipline on how many reserves banks are willing to hold or on how much negative future remittances the central bank can sustain. Because reserves are voluntarily held, the central bank can run negative net worth, and default-state transfers can be negative, sufficiently large reserve issuance can crowd out the need for risky sovereign borrowing. This gives reserve finance too strong an advantage relative to government bonds.
+A limitation of the current setup is that reserve issuance relaxes the government's period-$0$ financing need too easily. Combining the fiscal authority's period-$0$ budget constraint with the central bank's period-$0$ budget constraint gives
+\[
+P_0 C^F_0 = P_0 X + Q^B_0(B) B + T^{CB}_0,
+\qquad
+T^{CB}_0 = M_0 - Q^B_0(B) B^{CB}_0,
+\]
+so that
+\[
+P_0 C^F_0
+=
+P_0 X + Q^B_0(B)\big(B-B^{CB}_0\big)+M_0.
+\]
+Holding central-bank bond purchases fixed, an increase in $M_0$ raises the fiscal authority's initial resources one-for-one and can substitute for risky sovereign issuance.
 
-A first minimal way to discipline this margin is to introduce a downward-sloping reserve demand curve. The motivation, consistent with \citet{ChenKourentzesVeyrune2023}, is that banks hold reserves because they provide liquidity services, help absorb payment shocks, and satisfy reserve or regulatory needs. The marginal convenience yield of reserves is therefore positive but decreasing in reserve holdings. In that version, the central bank would naturally set the reserve rate while reserve quantities would be determined endogenously by bank demand, limiting the size of reserve-financed transfers.
+The problem is that the future cost of this reserve finance does not feed back into the government's repayment-default comparison. The period-$1$ and period-$2$ central-bank constraints imply
+\[
+M_1 = Q^B_1 B^{CB}_1 + (1+i^R_0)M_0,
+\]
+\[
+T^{CB,R}_2 = B^{CB}-(1+i^R_1)M_1,
+\qquad
+T^{CB,D}_2 = -(1+i^R_1)M_1.
+\]
+Hence
+\[
+T^{CB,R}_2-T^{CB,D}_2 = B^{CB},
+\]
+so the reserve liability $(1+i^R_1)M_1$ enters repayment and default symmetrically and cancels out of the default condition:
+\[
+P_2(Y+\phi)+T^{CB,R}_2-B<P_2\kappa+T^{CB,D}_2
+\]
+\[
+\Longleftrightarrow
+\qquad
+P_2(Y+\phi)+B^{CB}-B<P_2\kappa.
+\]
+As a result, default probabilities depend only on
+\[
+D\!\left(\kappa_i + \frac{B-B^{CB}}{P_2} - \phi_i\right),
+\]
+not directly on $M_0$ or $M_1$. Since reserves are voluntarily held, banks face no explicit reserve-holding friction, and the central bank can run negative net worth, sufficiently large reserve issuance can in principle eliminate the need for risky sovereign borrowing. 
 
-A second minimal way to discipline reserve issuance is to impose a central-bank solvency or fiscal-support constraint. Following the distinction emphasized by \citet{DelNegroSims2015}, \citet{HallReis2015}, and \citet{Reis2017QE}, fiscal backing of the price level is not the same as fiscal support for the central bank. Even if monetary policy determines inflation in equilibrium, a sufficiently impaired central-bank balance sheet may require recapitalization or else force the central bank to tolerate higher inflation or exploding reserve liabilities. In the present environment, this idea can be captured parsimoniously by a lower bound on period-$2$ remittances, or equivalently by an upper bound on the reserve liabilities that the central bank can credibly service without future fiscal support.
+A first minimal way to discipline this margin is to introduce a downward-sloping reserve demand curve, motivated by the idea that reserves provide liquidity services to banks, help absorb payment shocks, and satisfy reserve or regulatory needs \citep{ChenKourentzesVeyrune2023}. A simple way to formalize this is to let banks derive utility not only from consumption but also from real reserve holdings:
+\[
+u(C^A_0)+\beta u(C^A_1)+\beta^2\mathbb{E}_0[u(C^A_2)]
++ \chi_0 \ell\!\left(\frac{m_0}{P_0}\right)
++ \beta \chi_1 \ell\!\left(\frac{m_1}{P_1}\right),
+\]
+where $\ell'(\cdot)>0$ and $\ell''(\cdot)<0$. Then the reserve Euler equation becomes
+\[
+\frac{u'(C^A_t)}{P_t}
+=
+\frac{\chi_t \ell'\!\left(m_t/P_t\right)}{P_t}
++ \beta(1+i^R_t)\,\mathbb{E}_t\!\left[\frac{u'(C^A_{t+1})}{P_{t+1}}\right].
+\]
+The extra term is the marginal convenience yield of reserves. Because it is decreasing in reserve holdings, reserve quantities are no longer free: for a given reserve rate, there is a finite demand for reserves. Equivalently, one can summarize the same force through an inverse reserve-demand curve
+\[
+i^R_t = \mathcal{I}_t\!\left(\frac{m_t}{P_t},\text{state}\right),
+\qquad
+\mathcal{I}'_t>0,
+\]
+and let reserve quantities be pinned down endogenously by bank demand and reserve-market clearing rather than chosen independently by policy.
+
+A second minimal way to discipline reserve issuance is to impose a central-bank solvency or fiscal-support constraint. Following the distinction emphasized by \citet{DelNegroSims2015}, \citet{HallReis2015}, and \citet{Reis2017QE}, fiscal backing of the price level is not the same as fiscal support for the central bank. Even if monetary policy determines inflation in equilibrium, a sufficiently impaired central-bank balance sheet may require recapitalization or else force the central bank to tolerate higher inflation or exploding reserve liabilities. A reduced-form analogue in the present finite-horizon environment is to impose a lower bound on period-$2$ remittances,
+\[
+T^{CB,R}_2 \ge -\bar{\Xi},
+\qquad
+T^{CB,D}_2 \ge -\bar{\Xi},
+\]
+where $\bar{\Xi}$ summarizes the present value of future seigniorage, central-bank capital, or maximum fiscal support. Using the remittance equations above, this implies
+\[
+B^{CB}-(1+i^R_1)M_1 \ge -\bar{\Xi},
+\qquad
+-(1+i^R_1)M_1 \ge -\bar{\Xi}.
+\]
+The default-state condition is tighter, so
+\[
+(1+i^R_1)M_1 \le \bar{\Xi}.
+\]
+Under this solvency bound, reserve issuance can still help finance the government, but only up to the amount that can be credibly serviced without unbounded future losses or explicit fiscal recapitalization.
 
 
 \section*{Some Additional Observations}
