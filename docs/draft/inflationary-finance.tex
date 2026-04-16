@@ -635,6 +635,13 @@ lowering sovereign default risk. Thus, with risk-averse banks and endogenous inf
 
 However, the two mechanisms generate different comparative statics for the effect of reserve rates on inflation. Without a Taylor rule (exogenous $i^R_t$), the analysis above implies that a higher reserve rate raises inflation, because real rates are constrained by real fundamentals and cannot fully absorb the increase in $i^R_t$. Under an active Taylor rule ($\phi_\pi > 1$), the standard New Keynesian logic applies: the central bank raises $i^R_t$ more than one-for-one in response to inflation, which increases the real rate and stabilizes inflation. In the first case, higher reserve rates reduce the real value of nominal debt and lower default risk. In the second case, higher reserve rates tighten financial conditions and may worsen borrowing terms.
 
+\subsection*{A Limitation of the Current Setup and Two Minimal Fixes}
+
+A limitation of the current setup is that period-$0$ reserve issuance can relax the government's financing need without a corresponding discipline on how many reserves banks are willing to hold or on how much negative future remittances the central bank can sustain. Because reserves are voluntarily held, the central bank can run negative net worth, and default-state transfers can be negative, sufficiently large reserve issuance can crowd out the need for risky sovereign borrowing. This gives reserve finance too strong an advantage relative to government bonds.
+
+A first minimal way to discipline this margin is to introduce a downward-sloping reserve demand curve. The motivation, consistent with \citet{ChenKourentzesVeyrune2023}, is that banks hold reserves because they provide liquidity services, help absorb payment shocks, and satisfy reserve or regulatory needs. The marginal convenience yield of reserves is therefore positive but decreasing in reserve holdings. In that version, the central bank would naturally set the reserve rate while reserve quantities would be determined endogenously by bank demand, limiting the size of reserve-financed transfers.
+
+A second minimal way to discipline reserve issuance is to impose a central-bank solvency or fiscal-support constraint. Following the distinction emphasized by \citet{DelNegroSims2015}, \citet{HallReis2015}, and \citet{Reis2017QE}, fiscal backing of the price level is not the same as fiscal support for the central bank. Even if monetary policy determines inflation in equilibrium, a sufficiently impaired central-bank balance sheet may require recapitalization or else force the central bank to tolerate higher inflation or exploding reserve liabilities. In the present environment, this idea can be captured parsimoniously by a lower bound on period-$2$ remittances, or equivalently by an upper bound on the reserve liabilities that the central bank can credibly service without future fiscal support.
 
 
 \section*{Some Additional Observations}
@@ -649,6 +656,10 @@ In the previous environments, we abstract from several institutional features to
 		\item No central bank capital constraint. Thus, the central bank can run negative net worth if necessary. Default-state transfers can be negative. Thus the CB balance sheet does not restrict policy.
 	\end{itemize}
 These are not innocuous. In addition to the adding risk aversion in the banking sector, some the previous bullet points could be aspects that one could also consider analyzing.
+
+\singlespacing
+\bibliographystyle{plainnat}
+\bibliography{../memo/sovereign_monetary_literature}
 
 \end{document}
 
