@@ -624,6 +624,33 @@ The pass-through rate from $i^R_t$ to inflation is monotonically increasing in t
 	\item \textit{Non-bank risk aversion} ($\gamma^N$). More risk-averse non-banks resist absorbing the consumption shift that banks attempt, forcing more of the adjustment through inflation rather than through redistribution of consumption across agent types.
 \end{itemize}
 
+\paragraph{Reserve issuance and inflation.} Under the risk-averse-bank extension, the right way to think about reserve issuance is that it can affect inflation only if it changes the bank-implied real rate. There is no mechanical ``more reserves, more inflation'' result. The key relation remains
+\[
+\frac{P_{t+1}}{P_t} = \frac{1+i^R_t}{1+r_t},
+\qquad
+1+r_t \equiv \frac{u'(C^A_t)}{\beta\, \mathbb{E}_t[u'(C^A_{t+1})]}.
+\]
+Therefore, $M_t$ affects inflation only if it moves $r_t$, meaning only if it changes banks' consumption growth or risk exposure.
+
+A general-equilibrium wealth or portfolio channel is possible through three linked mechanisms:
+\begin{itemize}\setlength{\itemsep}{-5pt}
+	\item \textit{Intertemporal wealth transfer.} Higher $M_0$ raises the period-$0$ transfer because
+	\[
+	T^{CB}_0 = M_0-Q^B_0(B)B^{CB}_0.
+	\]
+	But the central bank must later service those reserves, since
+	\[
+	M_1 = Q^B_1 B^{CB}_1 + (1+i^R_0)M_0,
+	\]
+	and this shows up as lower future remittances. Hence reserve issuance shifts public resources across time: more spending, or less Treasury borrowing, today, but more reserve servicing tomorrow. If that shift makes banks consume relatively less today and more tomorrow, then $r_0$ rises and $P_1/P_0$ falls for a given reserve rate. If it does the opposite, inflation rises.
+	\smallskip
+	\item \textit{Portfolio-risk reallocation.} With risk-averse banks, reserves are safe and sovereign bonds are risky. If reserve issuance is tied to central-bank bond purchases or to lower Treasury borrowing, banks end up holding a safer portfolio. Since the draft already summarizes this force through a lower risk premium $\tau_t$, a safer balance sheet can reduce precautionary saving, shift bank consumption toward the present, lower $r_t$, and raise inflation for a given reserve rate. However, the sign is not automatic and depends on how the full equilibrium allocation adjusts.
+	\smallskip
+	\item \textit{Debt-default feedback.} If more reserve issuance at $t=0$ lets the fiscal authority issue less debt $B$, then future sovereign risk changes. That alters bond prices, bank wealth in repayment and default states, and expected marginal utilities. Since inflation is pinned down through those marginal utilities together with goods-market clearing, reserve issuance can feed back into inflation indirectly through the sovereign-risk block as well.
+\end{itemize}
+
+Therefore, there is a clean reserve-rate channel to inflation, but only a potential reserve-quantity channel, operating through wealth redistribution and portfolio composition. The sign of that quantity channel is not pinned down in the current text. The reason is that the aggregate resource constraints cancel nominal asset quantities out, so reserve issuance does not determine inflation the way a quantity-theory model would. Instead, reserve issuance is best interpreted as public-liability composition policy rather than pure money creation: it matters only if changing the mix of safe reserves and risky sovereign bonds changes the bank's desired intertemporal consumption path.
+
 \paragraph{Inflationary finance 
 channel:} Higher inflation raises $P_2$ and reduces the real value of nominal debt $(B-B^{CB})/P_2$ in the default probability
 \[
@@ -704,7 +731,7 @@ So Reis's point is that without fiscal backing, negative remittances are no long
 
 \subsubsection*{A Downward-Sloping Reserve Demand Curve}
 
-A first minimal way to discipline this margin is to introduce a downward-sloping reserve demand curve. A simple way to formalize this is to let banks derive utility not only from consumption but also from real reserve holdings:
+A first minimal way to discipline this margin is to introduce a downward-sloping reserve demand curve directly in reduced form. A convenient way to do so is to let banks derive utility not only from consumption but also from real reserve holdings:
 \[
 u(C^A_0)+\beta u(C^A_1)+\beta^2\mathbb{E}_0[u(C^A_2)]
 + \chi_0 \ell\!\left(\frac{m_0}{P_0}\right)
@@ -717,7 +744,7 @@ where $\ell'(\cdot)>0$ and $\ell''(\cdot)<0$. Then the reserve Euler equation be
 \frac{\chi_t \ell'\!\left(m_t/P_t\right)}{P_t}
 + \beta(1+i^R_t)\,\mathbb{E}_t\!\left[\frac{u'(C^A_{t+1})}{P_{t+1}}\right].
 \]
-The extra term is the marginal convenience yield of reserves. Because it is decreasing in reserve holdings, reserve quantities are no longer free: for a given reserve rate, there is a finite demand for reserves. Equivalently, one can summarize the same force through an inverse reserve-demand curve
+The extra term is the reduced-form counterpart of the shadow value $\lambda_t$ in the payment-services microfoundation above. Because it is decreasing in reserve holdings, reserve quantities are no longer free: for a given reserve rate, there is a finite demand for reserves. Equivalently, one can summarize the same force through an inverse reserve-demand curve
 \[
 i^R_t = \mathcal{I}_t\!\left(\frac{m_t}{P_t},\text{state}\right),
 \qquad
@@ -725,8 +752,87 @@ i^R_t = \mathcal{I}_t\!\left(\frac{m_t}{P_t},\text{state}\right),
 \]
 and let reserve quantities be pinned down endogenously by bank demand and reserve-market clearing rather than chosen independently by policy.
 
+A simple payment-services microfoundation can rationalize this reduced form. Let $Z_t$ denote aggregate payment services in period $t$, and suppose one unit of non-bank consumption requires one unit of payment services, so that in equilibrium
+\[
+Z_t = (1-\mu) C^N_t.
+\]
+Suppose also that banks must hold reserves to settle these payments. If the reserve requirement is
+\[
+\frac{M_t}{P_t} \ge \theta Z_t,
+\]
+then, at the per-bank level,
+\[
+m_t \ge \theta P_t \frac{1-\mu}{\mu} C^N_t.
+\]
+Let $\lambda_t$ denote the multiplier on this reserve requirement in the bank's problem. Then the bank's reserve Euler equation takes the form
+\[
+\frac{u'(C^A_t)}{P_t}
+=
+\lambda_t
++ \beta(1+i^R_t)\,\mathbb{E}_t\!\left[\frac{u'(C^A_{t+1})}{P_{t+1}}\right].
+\]
+The term $\lambda_t$ is the shadow value of reserves coming from their role in settlement.
 
-\textcolor{red}{Yang to Pedro: Is there a microfoundation for this liquidity channel in monetarist models?}
+To see why this shadow value is decreasing in reserve holdings, consider a static payment-services subproblem. Let $s_t$ denote the real fee per unit of payment services paid by non-banks to banks. Taking $s_t$ as given, non-banks choose $C^N_t$ and $Z_t$ to solve
+\[
+\max_{C^N_t,Z_t}\; (1-\mu)u(C^N_t)-s_t Z_t
+\]
+subject to
+\[
+Z_t \ge (1-\mu) C^N_t.
+\]
+At the optimum the constraint binds, implying
+\[
+s_t = u'(C^N_t).
+\]
+To map this microfoundation into the reduced-form notation, let
+\[
+x_t \equiv \frac{m_t}{P_t}
+\]
+denote per-bank real reserve holdings. If the reserve requirement binds, then
+\[
+x_t
+=
+\theta \frac{1-\mu}{\mu} C^N_t,
+\qquad
+C^N_t
+=
+\frac{\mu}{\theta(1-\mu)}x_t.
+\]
+Substituting into the fee equation gives the inverse demand for payment services as a function of real reserves:
+\[
+s_t(x_t)
+=
+u'\!\left(\frac{\mu}{\theta(1-\mu)}x_t\right).
+\]
+Now let $\tilde \lambda_t(x_t)\equiv P_t\lambda_t(x_t)$ denote the real shadow value of reserves, where $\lambda_t$ is the nominal multiplier that appears in the bank's Euler equation above. Since one extra unit of $x_t$ supports only $1/\theta$ extra units of payment services, the real shadow value is
+\[
+\tilde \lambda_t(x_t)
+=
+\frac{1}{\theta}s_t(x_t)
+=
+\frac{1}{\theta}
+u'\!\left(\frac{\mu}{\theta(1-\mu)}x_t\right).
+\]
+Differentiating yields
+\[
+\tilde \lambda_t'(x_t)
+=
+\frac{\mu}{\theta^2(1-\mu)}
+u''\!\left(\frac{\mu}{\theta(1-\mu)}x_t\right)
+<0,
+\]
+because $u''(\cdot)<0$. Thus the shadow value of reserves declines with reserve holdings. The reduced-form specification is obtained by defining
+\[
+\chi_t \ell'(x_t)\equiv \tilde \lambda_t(x_t).
+\]
+Under this mapping,
+\[
+\frac{\chi_t \ell'\!\left(m_t/P_t\right)}{P_t}
+=
+\lambda_t\!\left(\frac{m_t}{P_t}\right),
+\]
+so the convenience-yield term in the reduced-form reserve Euler equation is exactly the nominal counterpart of the shadow value generated by the payment-services microfoundation. The concavity condition $\ell''(\cdot)<0$ is therefore the reduced-form representation of diminishing marginal utility of non-bank consumption.
 
 \subsubsection*{A Central-Bank Solvency Constraint}
 
