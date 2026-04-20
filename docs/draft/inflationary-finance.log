@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.5.12)  17 APR 2026 16:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.5.12)  20 APR 2026 14:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -770,16 +770,18 @@ Overfull \hbox (140.74742pt too wide) detected at line 253
 [24]
 
 [25]
-Overfull \hbox (4.78381pt too wide) in paragraph at lines 863--864
+
+[26]
+Overfull \hbox (4.78381pt too wide) in paragraph at lines 907--908
 []\T1/cmr/m/n/12 In the pre-vi-ous en-vi-ron-ments, we ab-stract from sev-eral 
 in-sti-tu-tional fea-tures to main-tain tractabil-
  []
 
 
 
-[26] (./inflationary-finance.bbl)
+[27] (./inflationary-finance.bbl)
 
-[27] (./inflationary-finance.aux)
+[28] (./inflationary-finance.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-04-14>
@@ -788,8 +790,8 @@ Package rerunfilecheck Info: File `inflationary-finance.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 15797 strings out of 469607
- 247687 string characters out of 5474758
+ 15798 strings out of 469607
+ 247694 string characters out of 5474758
  652484 words of memory out of 5000000
  42275 multiletter control sequences out of 15000+600000
  645503 words of font info for 88 fonts, out of 8000000 for 9000
@@ -811,10 +813,10 @@ public/cm-super/sfcc2074.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-
 super/sfrm1095.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm
 1200.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb><
 c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfxc1728.pfb>
-Output written on inflationary-finance.pdf (27 pages, 313796 bytes).
+Output written on inflationary-finance.pdf (28 pages, 316872 bytes).
 PDF statistics:
- 295 PDF objects out of 1000 (max. 8388607)
- 226 compressed objects within 3 object streams
- 74 named destinations out of 1000 (max. 500000)
+ 299 PDF objects out of 1000 (max. 8388607)
+ 229 compressed objects within 3 object streams
+ 75 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

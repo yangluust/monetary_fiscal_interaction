@@ -805,11 +805,55 @@ s_t(x_t)
 =
 u'\!\left(\frac{\mu}{\theta(1-\mu)}x_t\right).
 \]
-Now let $\tilde \lambda_t(x_t)\equiv P_t\lambda_t(x_t)$ denote the real shadow value of reserves, where $\lambda_t$ is the nominal multiplier that appears in the bank's Euler equation above. Since one extra unit of $x_t$ supports only $1/\theta$ extra units of payment services, the real shadow value is
+\noindent To see how this enters the bank's intertemporal optimality condition, let
+\[
+\nu_t \equiv \frac{u'(C^A_t)}{P_t},
+\qquad
+\omega_t \equiv \beta(1+i^R_t)\,\mathbb{E}_t\!\left[\frac{u'(C^A_{t+1})}{P_{t+1}}\right]
+\]
+denote, respectively, the marginal utility value of one nominal unit in period $t$ and the continuation value of carrying one more unit of reserves into period $t+1$. At the per-bank level, let
+\[
+z_t \equiv \frac{Z_t}{\mu} = \frac{1-\mu}{\mu}C^N_t
+\]
+denote payment services supplied by one bank, so the reserve requirement is
+\[
+m_t \ge \theta P_t z_t.
+\]
+Taking $s_t$, $\nu_t$, and $\omega_t$ as given, the bank's static payment-services subproblem is
+\[
+\max_{m_t,z_t}\;
+\nu_t P_t s_t z_t - \nu_t m_t + \omega_t m_t
+\]
+subject to $m_t \ge \theta P_t z_t$. With multiplier $\lambda_t$ on the reserve constraint, the first-order conditions are
+\[
+\nu_t P_t s_t - \lambda_t \theta P_t = 0,
+\qquad
+-\nu_t + \omega_t + \lambda_t = 0.
+\]
+Hence,
+\[
+\lambda_t = \nu_t \frac{s_t}{\theta},
+\qquad
+\nu_t = \lambda_t + \omega_t.
+\]
+Substituting back the definitions of $\nu_t$ and $\omega_t$ yields
+\[
+\frac{u'(C^A_t)}{P_t}
+=
+\lambda_t
++ \beta(1+i^R_t)\,\mathbb{E}_t\!\left[\frac{u'(C^A_{t+1})}{P_{t+1}}\right],
+\]
+which is exactly the reserve Euler equation in the microfounded model.
+
+It is then useful to normalize the shadow value of reserves by the bank's marginal utility of nominal wealth. Define
+\[
+\tilde \lambda_t(x_t)\equiv \frac{\lambda_t(x_t)}{\nu_t}.
+\]
+Using the first-order condition above,
 \[
 \tilde \lambda_t(x_t)
 =
-\frac{1}{\theta}s_t(x_t)
+\frac{s_t(x_t)}{\theta}
 =
 \frac{1}{\theta}
 u'\!\left(\frac{\mu}{\theta(1-\mu)}x_t\right).
@@ -822,9 +866,9 @@ Differentiating yields
 u''\!\left(\frac{\mu}{\theta(1-\mu)}x_t\right)
 <0,
 \]
-because $u''(\cdot)<0$. Thus the shadow value of reserves declines with reserve holdings. The reduced-form specification is obtained by defining
+because $u''(\cdot)<0$. Thus the normalized shadow value of reserves declines with reserve holdings. The reduced-form specification is obtained by defining
 \[
-\chi_t \ell'(x_t)\equiv \tilde \lambda_t(x_t).
+\chi_t \ell'(x_t)\equiv u'(C^A_t)\tilde \lambda_t(x_t).
 \]
 Under this mapping,
 \[
