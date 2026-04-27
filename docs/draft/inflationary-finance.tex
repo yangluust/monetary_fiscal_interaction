@@ -756,24 +756,15 @@ A simple payment-services microfoundation can rationalize this reduced form. Let
 \[
 Z_t = (1-\mu) C^N_t.
 \]
-Suppose also that banks must hold reserves to settle these payments. If the reserve requirement is
+At the per-bank level, let
 \[
-\frac{M_t}{P_t} \ge \theta Z_t,
+z_t \equiv \frac{Z_t}{\mu} = \frac{1-\mu}{\mu} C^N_t
 \]
-then, at the per-bank level,
+denote payment services supplied by one bank. Suppose banks must hold reserves to settle these payments:
 \[
-m_t \ge \theta P_t \frac{1-\mu}{\mu} C^N_t.
+m_t \ge \theta P_t z_t.
 \]
-Let $\lambda_t$ denote the multiplier on this reserve requirement in the bank's problem. Then the bank's reserve Euler equation takes the form
-\[
-\frac{u'(C^A_t)}{P_t}
-=
-\lambda_t
-+ \beta(1+i^R_t)\,\mathbb{E}_t\!\left[\frac{u'(C^A_{t+1})}{P_{t+1}}\right].
-\]
-The term $\lambda_t$ is the shadow value of reserves coming from their role in settlement.
-
-To see why this shadow value is decreasing in reserve holdings, consider a static payment-services subproblem. Let $s_t$ denote the real fee per unit of payment services paid by non-banks to banks. Taking $s_t$ as given, non-banks choose $C^N_t$ and $Z_t$ to solve
+Let $s_t$ denote the real fee per unit of payment services paid by non-banks to banks. To determine the fee, consider the non-bank payment-services subproblem. Taking $s_t$ as given, non-banks choose $C^N_t$ and $Z_t$ to solve
 \[
 \max_{C^N_t,Z_t}\; (1-\mu)u(C^N_t)-s_t Z_t
 \]
@@ -785,6 +776,53 @@ At the optimum the constraint binds, implying
 \[
 s_t = u'(C^N_t).
 \]
+
+Now embed fee income directly in the bank's intertemporal problem. For $t=0,1$, the bank receives nominal payment-service revenue $P_t s_t z_t$ in addition to its endowment income. The bank solves
+\[
+\max_{\{C^A_t,B^A_t,m_t,z_t\}}
+u(C^A_0)+\beta u(C^A_1)+\beta^2 \mathbb{E}_0[u(C^A_2)]
+\]
+subject to
+\[
+P_0 C^A_0 + Q^B_0(B)B^A_0 + m_0
+=
+P_0 W^A_0 + P_0 s_0 z_0,
+\]
+\[
+P_1 C^A_1 + Q^B_1 B^A_1 + m_1
+=
+P_1 W^A_1 + (1+i^R_0)m_0 + Q^B_1 B^A_0 + P_1 s_1 z_1,
+\]
+\[
+P_2 C^A_2
+=
+(1+i^R_1)m_1 + \mathbf{1}^{R}_2(B)B^A_1,
+\]
+and the settlement constraints
+\[
+m_t \ge \theta P_t z_t,
+\qquad t=0,1.
+\]
+Let $\lambda_t$ denote the current-value multiplier on the period-$t$ settlement constraint, measured in marginal utility units per nominal reserve. The first-order condition with respect to reserves is
+\[
+\frac{u'(C^A_t)}{P_t}
+=
+\lambda_t
++ \beta(1+i^R_t)\,\mathbb{E}_t\!\left[\frac{u'(C^A_{t+1})}{P_{t+1}}\right],
+\qquad t=0,1.
+\]
+The term $\lambda_t$ is the shadow value of reserves coming from their role in settlement. The first-order condition with respect to payment services is
+\[
+\frac{u'(C^A_t)}{P_t}P_t s_t
+=
+\lambda_t \theta P_t,
+\]
+or
+\[
+\lambda_t
+=
+\frac{u'(C^A_t)}{P_t}\frac{s_t}{\theta}.
+\]
 To map this microfoundation into the reduced-form notation, let
 \[
 x_t \equiv \frac{m_t}{P_t}
@@ -792,6 +830,8 @@ x_t \equiv \frac{m_t}{P_t}
 denote per-bank real reserve holdings. If the reserve requirement binds, then
 \[
 x_t
+=
+\theta z_t
 =
 \theta \frac{1-\mu}{\mu} C^N_t,
 \qquad
@@ -805,51 +845,13 @@ s_t(x_t)
 =
 u'\!\left(\frac{\mu}{\theta(1-\mu)}x_t\right).
 \]
-\noindent To see how this enters the bank's intertemporal optimality condition, let
-\[
-\nu_t \equiv \frac{u'(C^A_t)}{P_t},
-\qquad
-\omega_t \equiv \beta(1+i^R_t)\,\mathbb{E}_t\!\left[\frac{u'(C^A_{t+1})}{P_{t+1}}\right]
-\]
-denote, respectively, the marginal utility value of one nominal unit in period $t$ and the continuation value of carrying one more unit of reserves into period $t+1$. At the per-bank level, let
-\[
-z_t \equiv \frac{Z_t}{\mu} = \frac{1-\mu}{\mu}C^N_t
-\]
-denote payment services supplied by one bank, so the reserve requirement is
-\[
-m_t \ge \theta P_t z_t.
-\]
-Taking $s_t$, $\nu_t$, and $\omega_t$ as given, the bank's static payment-services subproblem is
-\[
-\max_{m_t,z_t}\;
-\nu_t P_t s_t z_t - \nu_t m_t + \omega_t m_t
-\]
-subject to $m_t \ge \theta P_t z_t$. With multiplier $\lambda_t$ on the reserve constraint, the first-order conditions are
-\[
-\nu_t P_t s_t - \lambda_t \theta P_t = 0,
-\qquad
--\nu_t + \omega_t + \lambda_t = 0.
-\]
-Hence,
-\[
-\lambda_t = \nu_t \frac{s_t}{\theta},
-\qquad
-\nu_t = \lambda_t + \omega_t.
-\]
-Substituting back the definitions of $\nu_t$ and $\omega_t$ yields
-\[
-\frac{u'(C^A_t)}{P_t}
-=
-\lambda_t
-+ \beta(1+i^R_t)\,\mathbb{E}_t\!\left[\frac{u'(C^A_{t+1})}{P_{t+1}}\right],
-\]
-which is exactly the reserve Euler equation in the microfounded model.
-
 It is then useful to normalize the shadow value of reserves by the bank's marginal utility of nominal wealth. Define
 \[
-\tilde \lambda_t(x_t)\equiv \frac{\lambda_t(x_t)}{\nu_t}.
+\tilde \lambda_t(x_t)
+\equiv
+\frac{\lambda_t(x_t)}{u'(C^A_t)/P_t}.
 \]
-Using the first-order condition above,
+Using the payment-service first-order condition above,
 \[
 \tilde \lambda_t(x_t)
 =
