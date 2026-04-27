@@ -752,30 +752,65 @@ i^R_t = \mathcal{I}_t\!\left(\frac{m_t}{P_t},\text{state}\right),
 \]
 and let reserve quantities be pinned down endogenously by bank demand and reserve-market clearing rather than chosen independently by policy.
 
-A simple payment-services microfoundation can rationalize this reduced form. Let $Z_t$ denote aggregate payment services in period $t$, and suppose one unit of non-bank consumption requires one unit of payment services, so that in equilibrium
+A simple payment-services microfoundation can rationalize this reduced form. Let $z^N_t$ denote payment services used by each non-bank in period $t$, and suppose one unit of non-bank consumption requires one unit of payment services, so that in equilibrium
 \[
-Z_t = (1-\mu) C^N_t.
+z^N_t = C^N_t.
 \]
-At the per-bank level, let
+Aggregate payment services are $Z_t=(1-\mu)z^N_t$. At the per-bank level, let
 \[
-z_t \equiv \frac{Z_t}{\mu} = \frac{1-\mu}{\mu} C^N_t
+z_t \equiv \frac{Z_t}{\mu} = \frac{1-\mu}{\mu} z^N_t
 \]
 denote payment services supplied by one bank. Suppose banks must hold reserves to settle these payments:
 \[
 m_t \ge \theta P_t z_t.
 \]
-Let $s_t$ denote the real fee per unit of payment services paid by non-banks to banks. To determine the fee, consider the non-bank payment-services subproblem. Taking $s_t$ as given, non-banks choose $C^N_t$ and $Z_t$ to solve
+Let $s_t$ denote the real fee per unit of payment services paid by non-banks to banks. The fee applies only in periods $t=0,1$, because these are the periods in which reserves are held and used for settlement. Thus the non-bank problem can be written intertemporally, in per-non-bank terms, as
 \[
-\max_{C^N_t,Z_t}\; (1-\mu)u(C^N_t)-s_t Z_t
+\max_{\{C^N_t,B^N_t,z^N_t\}}
+u(C^N_0)+\beta u(C^N_1)+\beta^2 \mathbb{E}_0[u(C^N_2)]
 \]
 subject to
 \[
-Z_t \ge (1-\mu) C^N_t.
+P_0 C^N_0 + Q^B_0(B)B^N_0 + P_0 s_0 z^N_0
+=
+P_0 W^N_0,
 \]
-At the optimum the constraint binds, implying
 \[
-s_t = u'(C^N_t).
+P_1 C^N_1 + Q^B_1 B^N_1 + P_1 s_1 z^N_1
+=
+P_1 W^N_1 + Q^B_1 B^N_0,
 \]
+\[
+P_2 C^N_2
+=
+\mathbf{1}^{R}_2(B)B^N_1,
+\]
+and the payment-services requirements
+\[
+z^N_t \ge C^N_t,
+\qquad t=0,1.
+\]
+There is no period-$2$ service fee in this finite-horizon version because there is no period-$2$ reserve choice $m_2$ or reserve supply $M_2$.
+
+Let $\nu^N_t$ denote the current-value non-bank marginal utility of one nominal unit in period $t$, and let $\xi_t$ denote the current-value multiplier on the payment-services requirement. The first-order conditions for $C^N_t$ and $z^N_t$ imply
+\[
+u'(C^N_t)
+=
+\nu^N_t P_t + \xi_t,
+\qquad
+\nu^N_t P_t s_t
+=
+\xi_t,
+\qquad t=0,1.
+\]
+Combining these conditions gives the inverse demand for payment services,
+\[
+s_t
+=
+\frac{u'(C^N_t)}{\nu^N_t P_t}-1,
+\qquad t=0,1.
+\]
+Thus, for a given non-bank marginal value of wealth $\nu^N_t P_t$, the service fee is decreasing in $C^N_t$ because $u''(\cdot)<0$.
 
 Now embed fee income directly in the bank's intertemporal problem. For $t=0,1$, the bank receives nominal payment-service revenue $P_t s_t z_t$ in addition to its endowment income. The bank solves
 \[
@@ -833,17 +868,20 @@ x_t
 =
 \theta z_t
 =
-\theta \frac{1-\mu}{\mu} C^N_t,
+\theta \frac{1-\mu}{\mu} z^N_t,
 \qquad
-C^N_t
+z^N_t
 =
 \frac{\mu}{\theta(1-\mu)}x_t.
 \]
+Since the payment-services requirement binds, $z^N_t=C^N_t$.
 Substituting into the fee equation gives the inverse demand for payment services as a function of real reserves:
 \[
 s_t(x_t)
 =
-u'\!\left(\frac{\mu}{\theta(1-\mu)}x_t\right).
+\frac{1}{\nu^N_t P_t}
+u'\!\left(\frac{\mu}{\theta(1-\mu)}x_t\right)
+-1.
 \]
 It is then useful to normalize the shadow value of reserves by the bank's marginal utility of nominal wealth. Define
 \[
@@ -858,17 +896,22 @@ Using the payment-service first-order condition above,
 \frac{s_t(x_t)}{\theta}
 =
 \frac{1}{\theta}
-u'\!\left(\frac{\mu}{\theta(1-\mu)}x_t\right).
+\left[
+\frac{1}{\nu^N_t P_t}
+u'\!\left(\frac{\mu}{\theta(1-\mu)}x_t\right)
+-1
+\right].
 \]
 Differentiating yields
 \[
 \tilde \lambda_t'(x_t)
 =
+\frac{1}{\nu^N_t P_t}
 \frac{\mu}{\theta^2(1-\mu)}
 u''\!\left(\frac{\mu}{\theta(1-\mu)}x_t\right)
 <0,
 \]
-because $u''(\cdot)<0$. Thus the normalized shadow value of reserves declines with reserve holdings. The reduced-form specification is obtained by defining
+holding $\nu^N_t P_t$ fixed and using $u''(\cdot)<0$. Thus the normalized shadow value of reserves declines with reserve holdings along the non-bank inverse demand curve. The reduced-form specification is obtained by defining
 \[
 \chi_t \ell'(x_t)\equiv u'(C^A_t)\tilde \lambda_t(x_t).
 \]
