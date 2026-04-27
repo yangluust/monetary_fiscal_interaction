@@ -878,18 +878,14 @@ s_t(x_t)
 \mathcal{U}_C\!\left(C^N_t,\frac{\mu}{\theta(1-\mu)}x_t\right)
 }.
 \]
-It is then useful to normalize the shadow value of reserves by the bank's marginal utility of nominal wealth. Define
+Combining the inverse demand for payment services with the bank's payment-service first-order condition gives the induced inverse demand for reserves directly in terms of the shadow value $\lambda_t$:
 \[
-\tilde \lambda_t(x_t)
-\equiv
-\frac{\lambda_t(x_t)}{u'(C^A_t)/P_t}.
-\]
-Using the payment-service first-order condition above,
-\[
-\tilde \lambda_t(x_t)
+\lambda_t(x_t)
 =
+\frac{u'(C^A_t)}{P_t}
 \frac{s_t(x_t)}{\theta}
 =
+\frac{u'(C^A_t)}{P_t}
 \frac{1}{\theta}
 \frac{
 \mathcal{U}_z\!\left(C^N_t,\frac{\mu}{\theta(1-\mu)}x_t\right)
@@ -897,22 +893,19 @@ Using the payment-service first-order condition above,
 \mathcal{U}_C\!\left(C^N_t,\frac{\mu}{\theta(1-\mu)}x_t\right)
 }.
 \]
-Differentiating yields
+Holding the bank marginal value of nominal wealth $u'(C^A_t)/P_t$ fixed, differentiating yields
 \[
-\tilde \lambda_t'(x_t)
+\lambda_t'(x_t)
 =
+\frac{u'(C^A_t)}{P_t}
 \frac{\mu}{\theta^2(1-\mu)}
 \frac{\partial}{\partial z}
 \left[
 \frac{\mathcal{U}_z(C^N_t,z)}
 {\mathcal{U}_C(C^N_t,z)}
-\right]_{z=\frac{\mu}{\theta(1-\mu)}x_t},
+\right]_{z=\frac{\mu}{\theta(1-\mu)}x_t}.
 \]
-which is negative whenever the non-bank marginal rate of substitution $\mathcal{U}_z/\mathcal{U}_C$ is decreasing in payment services. Thus the normalized shadow value of reserves declines with reserve holdings along the non-bank inverse demand curve. The reduced-form specification is obtained by defining
-\[
-\chi_t \ell'(x_t)\equiv u'(C^A_t)\tilde \lambda_t(x_t).
-\]
-Under this mapping,
+This derivative is negative whenever the non-bank marginal rate of substitution $\mathcal{U}_z/\mathcal{U}_C$ is decreasing in payment services. Thus the shadow value of reserves declines with reserve holdings along the non-bank inverse demand curve. The reduced-form specification is obtained by defining
 \[
 \frac{\chi_t \ell'\!\left(m_t/P_t\right)}{P_t}
 =
