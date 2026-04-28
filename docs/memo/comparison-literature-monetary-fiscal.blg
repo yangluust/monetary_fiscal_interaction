@@ -2,10 +2,10 @@ This is BibTeX, Version 0.99d (TeX Live 2025)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: comparison-literature-monetary-fiscal.aux
 The style file: plainnat.bst
-Database file #1: sovereign_monetary_literature.bib
+Database file #1: ../draft/sovereign_monetary_literature.bib
 You've used 16 entries,
             2773 wiz_defined-function locations,
-            717 strings with 7666 characters,
+            717 strings with 7675 characters,
 and the built_in function-call counts, 8280 in all, are:
 = -- 819
 > -- 359

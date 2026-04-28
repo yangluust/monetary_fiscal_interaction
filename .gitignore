@@ -1,22 +1,3 @@
-# LaTeX and Beamer output files in draft/
-draft/**/*.aux
-draft/**/*.log
-draft/**/*.toc
-draft/**/*.lof
-draft/**/*.lot
-draft/**/*.out
-draft/**/*.synctex.gz
-draft/**/*.fls
-draft/**/*.fdb_latexmk
-draft/**/*.bbl
-draft/**/*.blg
-draft/**/*.dvi
-draft/**/*.bcf
-draft/**/*.run.xml
-draft/**/*.nav
-draft/**/*.snm
-draft/**/*.pdf
-
 # LaTeX output files in docs/issue/
 docs/issue/**/*.aux
 docs/issue/**/*.log
@@ -35,6 +16,44 @@ docs/issue/**/*.run.xml
 docs/issue/**/*.nav
 docs/issue/**/*.snm
 docs/issue/**/*.pdf
+
+# LaTeX output files in docs/draft/
+docs/draft/**/*.aux
+docs/draft/**/*.log
+docs/draft/**/*.toc
+docs/draft/**/*.lof
+docs/draft/**/*.lot
+docs/draft/**/*.out
+docs/draft/**/*.synctex.gz
+docs/draft/**/*.fls
+docs/draft/**/*.fdb_latexmk
+docs/draft/**/*.bbl
+docs/draft/**/*.blg
+docs/draft/**/*.dvi
+docs/draft/**/*.bcf
+docs/draft/**/*.run.xml
+docs/draft/**/*.nav
+docs/draft/**/*.snm
+docs/draft/**/*.pdf
+
+# LaTeX output files in docs/memo/
+docs/memo/**/*.aux
+docs/memo/**/*.log
+docs/memo/**/*.toc
+docs/memo/**/*.lof
+docs/memo/**/*.lot
+docs/memo/**/*.out
+docs/memo/**/*.synctex.gz
+docs/memo/**/*.fls
+docs/memo/**/*.fdb_latexmk
+docs/memo/**/*.bbl
+docs/memo/**/*.blg
+docs/memo/**/*.dvi
+docs/memo/**/*.bcf
+docs/memo/**/*.run.xml
+docs/memo/**/*.nav
+docs/memo/**/*.snm
+docs/memo/**/*.pdf
 
 # Python
 __pycache__/
