@@ -1,0 +1,961 @@
+\documentclass[12pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{geometry,ulem,graphicx,caption,color,setspace,sectsty,comment,footmisc,caption,pdflscape,array,indentfirst,booktabs,placeins,rotating,adjustbox,multirow,makecell}
+
+
+
+\usepackage{hyperref}
+\usepackage[flushleft]{threeparttable}
+\usepackage[labelfont=bf]{caption}
+\usepackage{pdflscape}
+\usepackage{rotating}
+\usepackage{natbib}
+\usepackage{soul}
+%\usepackage{subcaption}
+\usepackage[position=bottom]{subfig}
+% \usepackage{floatrow}  
+%\usepackage{float}
+\usepackage{setspace}
+\usepackage{enumerate}
+\usepackage{enumitem}
+
+%\normalem
+
+%\onehalfspacing
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}{Proposition}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+\newtheorem{hyp}{Hypothesis}
+\newtheorem{subhyp}{Hypothesis}[hyp]
+\renewcommand{\thesubhyp}{\thehyp\alph{subhyp}}
+
+\newcommand{\red}[1]{{\color{red} #1}}
+\newcommand{\blue}[1]{{\color{blue} #1}}
+
+%\newcolumntype{L}[1]{>{\raggedright\let\newline\\arraybackslash\hspace{0pt}}m{#1}}
+%\newcolumntype{C}[1]{>{\centering\let\newline\\arraybackslash\hspace{0pt}}m{#1}}
+%\newcolumntype{R}[1]{>{\raggedleft\let\newline\\arraybackslash\hspace{0pt}}m{#1}}
+
+\geometry{left=0.75in,right=0.75in,top=0.75in,bottom=0.75in}
+
+\usepackage[T1]{fontenc} % section title
+
+% -------- Define new color ------------------------------
+\usepackage{color}  
+\definecolor{darkred}{rgb}{0.5,0,0}
+\definecolor{darkblue}{rgb}{0,0,0.5}
+\definecolor{mygrey}{rgb}{0.85,0.85,0.85} % make grey for the table
+\definecolor{ballblue}{rgb}{0.13, 0.67, 0.8}
+% --------------------------------------------------------
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=darkred,      
+	urlcolor=cyan,
+	%	footnotecolor=black,
+	citecolor=blue
+}
+
+% define footnote color
+%\makeatletter
+%\def\@footnotecolor{red}
+%\define@key{Hyp}{footnotecolor}{%
+% \HyColor@HyperrefColor{#1}\@footnotecolor%
+
+
+\def\@footnotemark{%
+	\leavevmode
+	\ifhmode\edef\@x@sf{\the\spacefactor}\nobreak\fi
+	\stepcounter{Hfootnote}%
+	\global\let\Hy@saved@currentHref\@currentHref
+	\hyper@makecurrent{Hfootnote}%
+	\global\let\Hy@footnote@currentHref\@currentHref
+	\global\let\@currentHref\Hy@saved@currentHref
+	\hyper@linkstart{footnote}{\Hy@footnote@currentHref}%
+	\@makefnmark
+	\hyper@linkend
+	\ifhmode\spacefactor\@x@sf\fi
+	\relax
+}%
+\makeatother
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=darkred,      
+	urlcolor=cyan
+}
+
+\usepackage[dvipsnames]{xcolor}
+
+\sectionfont{\color{Violet}} % MidnightBlue RoyalBlue
+\subsectionfont{\color{Violet}}
+\subsubsectionfont{\color{Violet}}
+
+\renewcommand{\refname}{\textsc{References}}
+
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+
+% Indent the reference
+\makeatletter
+\renewcommand\@biblabel[1]{}
+\renewenvironment{thebibliography}[1]
+{\section*{\refname}%
+	\@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}%
+	\list{\@biblabel{\@arabic\c@enumiv}}%
+	{\settowidth\labelwidth{\@biblabel{#1}}%
+		\leftmargin\labelwidth
+		\advance\leftmargin\labelsep
+		\advance\leftmargin by 2em%
+		\itemindent -2em% 
+		%\itemindent-\labelsep
+		\@openbib@code
+		\usecounter{enumiv}%
+		\let\p@enumiv\@empty
+		\renewcommand\theenumiv{\@arabic\c@enumiv}}%
+	\sloppy
+	\clubpenalty4000
+	\@clubpenalty \clubpenalty
+	\widowpenalty4000%
+	\sfcode`\.\@m}
+{\def\@noitemerr
+	{\@latex@warning{Empty `thebibliography' environment}}%
+	\endlist}
+\makeatother
+
+% allow in-text math break (MUST install)
+\makeatletter
+\def\old@comma{,}
+\catcode`\,=13
+\def,{%
+	\ifmmode%
+	\old@comma\discretionary{}{}{}%
+	\else%
+	\old@comma%
+	\fi%
+}
+\makeatother
+
+\begin{document}
+\title{\sc Sovereign Debt Signaling with Central Bank Balance Sheet Policies }
+
+\date{\small This Version: \today }
+
+\maketitle
+
+
+
+\doublespacing
+
+
+The goal of this note is to show another implication of risk-averse banks: inflation determination. 
+
+%%%%%%%%
+\section*{Model with Bonds, Reserves, and Balance Sheet Policies}
+
+A potential way to extend the baseline signaling framework in your paper to an environment with a fiscal authority, a central bank, and segmented financial markets. 
+
+The goal of such an environment would be to study how sovereign borrowing signals private information when government debt interacts with central-bank balance-sheet policies.
+
+In this new environment, time is discrete and the economy lasts for three periods, $t=0,1,2$. Agents have access to assets, which they are all nominal. The fiscal authority issues government bonds are nominal claims issued in period $0$ that mature in period $2$, while reserves are one-period nominal liabilities issued by the central bank. The aggregate price level in period $t$ is denoted by $P_t$.
+
+
+There are four types of agents:
+\begin{itemize}
+	\setlength{\itemsep}{-10pt}
+	\item the fiscal authority,
+	\item the central bank,
+	\item reserve-access agents (``banks''),
+	\item non-reserve-access agents (``non-banks'').
+\end{itemize}
+The measure of banks is $\mu \in (0,1)$ and the measure of non-banks is $1-\mu$.
+
+
+
+\subsection*{Fiscal Authority}
+
+The fiscal authority issues nominal government bonds in period $0$. Let $B \in \mathcal{B}$ denote the face value of nominal bonds issued in period $0$. These bonds promise repayment of $B$ units of currency in period $2$.
+
+Let $Q^B_0(B)$ denote the nominal price, in units of currency at $t=0$, of one unit of face value of government bonds maturing in period $2$. The fiscal authority's nominal budget constraint in period $0$ is given by
+\[
+P_0 C^F_0 = P_0 X + Q^B_0(B) B + T^{CB}_0,
+\]
+where $C^F_0$ denotes period-$0$ real fiscal absorption, $X$ is the period-$0$ real fiscal endowment, and $T^{CB}_0$ is the nominal transfer from the central bank.
+
+In period $2$, the fiscal authority receives the nominal value of fiscal resources
+\[
+P_2(Y+\phi),
+\]
+where $Y$ is a stochastic real endowment and $\phi$ captures future real fundamentals.
+
+If the fiscal authority repays its nominal debt obligations, its period-$2$ nominal budget constraint is given by
+\[
+P_2 C^{F,R}_2 = P_2(Y+\phi) + T^{CB,R}_2 - B.
+\]
+If it defaults, it obtains the fallback payoff
+\[
+P_2 C^{F,D}_2 = P_2\kappa + T^{CB,D}_2,
+\]
+where $\kappa$ is the real payoff under default. 
+Bondholders receive zero in default. Thus one unit of government bond face value pays one unit of currency in repayment and zero in default.
+
+The government compares the repayment payoff, which uses the remittance $T^{CB,R}_2$ induced by repayment, to the default payoff, which uses the remittance $T^{CB,D}_2$ induced by default. Default occurs whenever
+\[
+P_2(Y+\phi) + T^{CB,R}_2 - B < P_2\kappa + T^{CB,D}_2.
+\]
+
+Thus, the default probability for type $i$ is
+\[
+D\!\left(\kappa_i + \frac{B - (T^{CB,R}_2-T^{CB,D}_2)}{P_2} - \phi_i\right).
+\]
+
+The fiscal authority derives utility from real fiscal resources. For type $i \in \{S,R\}$,
+\[
+u_i(B)
+=
+\ln\!\left(\frac{P_0 X + Q^B_0(B)B + T^{CB}_0}{P_0}\right)
++
+D\!\left(\kappa_i + \frac{B - (T^{CB,R}_2-T^{CB,D}_2)}{P_2} - \phi_i\right)\ln\!\left(\kappa_i+\frac{T^{CB,D}_2}{P_2}\right)
+\]
+\[
+\qquad
++
+\left[
+1-
+D\!\left(\kappa_i + \frac{B - (T^{CB,R}_2-T^{CB,D}_2)}{P_2} - \phi_i\right)
+\right]
+\mathbb{E}
+\left[
+\ln\!\left(
+Y+\phi_i+\frac{T^{CB,R}_2-B}{P_2}
+\right)
+\,\middle|\,
+P_2(Y+\phi_i)+T^{CB,R}_2-B>P_2\kappa_i+T^{CB,D}_2
+\right].
+\]
+
+As in the baseline model, the fiscal authority receives idiosyncratic choice shocks $\varepsilon(B)$ drawn from a type-I extreme value distribution. The borrowing choice satisfies
+\[
+B_i=\arg\max_{B\in\mathcal{B}}\{u_i(B)+\varepsilon(B)\}.
+\]
+
+\subsection*{Central Bank}
+
+The central bank issues nominal reserves, pays nominal interest on reserves, conducts open market operations, and transfers its net proceeds to the fiscal authority. The policy instruments are the reserve supplies $\{M_0,M_1\}$, the bond purchases $\{B^{CB}_0,B^{CB}_1\}$, and the reserve rates $\{i^R_0,i^R_1\}$. The transfers $\{T^{CB}_0,T^{CB,R}_2,T^{CB,D}_2\}$ are residual objects implied by the central bank's budget constraints, while the period-$1$ transfer is normalized to zero.
+
+Let $M_0$ denote nominal reserves issued in period $0$ and $M_1$ nominal reserves issued in period $1$. Reserves are one-period nominal liabilities held only by banks. Let $i^R_t$ denote the nominal interest rate paid on reserves issued in period $t$. Let $B^{CB}_0$ denote the nominal face value of government bonds purchased by the central bank in period $0$, and let $B^{CB}_1$ denote additional nominal bond purchases in period $1$.
+
+\paragraph{Period 0 budget constraint:} In period $0$, the central bank finances its purchases of nominal government bonds and its transfer to the fiscal authority by issuing reserves. Its nominal flow budget constraint is then given by
+\[
+Q^B_0(B) B^{CB}_0 + T^{CB}_0 = M_0.
+\]
+Hence the period-$0$ transfer is the residual
+\[
+T^{CB}_0 = M_0 - Q^B_0(B) B^{CB}_0.
+\]
+
+
+\paragraph{Period 1 budget constraint:} In period $1$, reserves issued in period $0$ mature and must be repaid with nominal interest. The central bank may issue new nominal reserves $M_1$ and may purchase additional nominal government bonds $B^{CB}_1$. We normalize the period-$1$ transfer to the fiscal authority to zero, so $T^{CB}_1=0$.
+
+Let $Q^B_1$ denote the nominal period-$1$ price of government bonds maturing in period $2$. The period-$1$ nominal flow budget constraint is
+\[
+Q^B_1 B^{CB}_1 + (1+i^R_0)M_0 = M_1.
+\]
+
+
+\paragraph{Period 2 profits and transfers:} By period $2$, the central bank holds the following nominal bonds
+\[
+B^{CB}=B^{CB}_0+B^{CB}_1.
+\]
+ If the government repays, the central bank receives the nominal payoff that is 
+$
+B^{CB}.
+$
+
+The central bank must also repay period-$1$ reserves with nominal interest:
+\[
+(1+i^R_1)M_1.
+\]
+
+Hence, if the government repays, period-$2$ nominal profits for the central bank are
+\[
+\Pi^{CB}_2 = B^{CB} - (1+i^R_1)M_1.
+\]
+These profits are remitted to the fiscal authority so that
+\[
+T^{CB,R}_2=\Pi^{CB}_2.
+\]
+
+If the government defaults, the central bank's bond portfolio pays zero, so the period-$2$ remittance is
+\[
+T^{CB,D}_2 = -(1+i^R_1)M_1.
+\]
+Under zero recovery, the remittance difference across the repayment and default contingencies is therefore
+\[
+T^{CB,R}_2-T^{CB,D}_2 = B^{CB}.
+\]
+Let $\mathbf{1}^{R}_2(B)$ denote the indicator that the government repays in period $2$ after issuing $B$, so that the realized nominal payoff of one unit of bond face value is $\mathbf{1}^{R}_2(B)$.
+
+\subsection*{Private Agents}
+
+Private agents differ only in their access to central bank reserves. Both types of agents form beliefs about the fiscal authority's type $i\in\{S,R\}$ and price government bonds accordingly.
+
+
+The government type $i$ captures private information relevant for default risk. Two interpretations are considered:
+\begin{itemize}	\setlength{\itemsep}{-10pt}
+	\item \textbf{Hidden default payoff}: the type differs in the nominal fallback payoff $\kappa_i$.
+	\item \textbf{Hidden fundamentals}: the type differs in future real fiscal resources $\phi_i$.
+\end{itemize}
+
+
+
+Neither banks nor non-banks observe the realization of $i$. Instead, they observe government borrowing $B$ and update beliefs using Bayes' rule.
+
+\subsubsection*{Reserve-access Agents (Banks)}
+
+Banks have access to central bank reserve accounts and can therefore hold both nominal reserves and government bonds. Let $B^A_t$ denote the nominal face value of government bonds held by banks at time $t$, and let $M_t$ denote their nominal reserve holdings. Banks are competitive, risk-neutral intermediaries. Since they can substitute at the margin between reserves and government bonds, equilibrium requires indifference between the two assets whenever both are held.
+
+Their period-$0$ nominal budget constraint is
+\[
+P_0 C^A_0 + Q^B_0(B) B^A_0 + M_0 = P_0 W^A_0 .
+\]
+Similarly, for period $1$ we have that
+\[
+P_1 C^A_1 + Q^B_1 B^A_1 + M_1
+=
+P_1 W^A_1 + (1+i^R_0)M_0 + Q^B_1 B^A_0. 
+\]
+
+In period $2$, the bank's nominal budget constraint is
+\[
+P_2 C^A_2 = (1+i^R_1)M_1 + \mathbf{1}^{R}_2(B) B^A_1 .
+\]
+
+Let $\mathbb{E}_t[\cdot]$ denote expectations conditional on information at time $t$, including posterior beliefs about the fiscal authority's type after observing borrowing $B$. Bank indifference implies the asset-pricing conditions
+\[
+Q^B_1 = \frac{\mathbb{E}_1[\mathbf{1}^{R}_2(B)]}{1+i^R_1},
+\]
+and
+\[
+Q^B_0(B) = \frac{\mathbb{E}_0[Q^B_1 \mid B]}{1+i^R_0}.
+\]
+These conditions make reserve rates the marginal opportunity cost of bond holdings for banks.
+
+\subsubsection*{Non-Reserve-Access Agents (Non-Banks)}
+
+Non-banks do not have access to reserves and therefore can only hold nominal government bonds. Let $B^N_t$ denote their nominal bond holdings. They choose consumption and bond holdings to smooth consumption over time. Specifically, they solve
+\[
+\max_{\{C^N_t,B^N_t\}} \;
+u(C^N_0)+\beta u(C^N_1)+\beta^2 \mathbb{E}_0[u(C^N_2)]
+\]
+subject to their budget constraints. Their period-$0$ nominal budget constraint is
+\[
+P_0 C^N_0 + Q^B_0(B) B^N_0 = P_0 W^N_0 
+\]
+while for period $1$ is given by
+\[
+P_1 C^N_1 + Q^B_1 B^N_1 = P_1 W^N_1 + Q^B_1 B^N_0 .
+\]
+
+In period $2$, their nominal budget constraint is
+\[
+P_2 C^N_2 = \mathbf{1}^{R}_2(B) B^N_1 .
+\]
+
+The associated Euler equations are
+\[
+\frac{Q^B_0(B)}{P_0} u'(C^N_0)
+=
+\beta \mathbb{E}_0\!\left[\frac{Q^B_1}{P_1} u'(C^N_1) \,\middle|\, B \right],
+\]
+and
+\[
+\frac{Q^B_1}{P_1} u'(C^N_1)
+=
+\beta \mathbb{E}_1\!\left[\frac{\mathbf{1}^{R}_2(B)}{P_2} u'(C^N_2)\right].
+\]
+Like banks, non-banks do not observe the government type $i$. They form posterior beliefs $\rho(B)$ based on observed borrowing and evaluate expected bond payoffs using those beliefs.
+
+\paragraph{Role of Financial Segmentation:} The distinction between banks and non-banks affects bond pricing because only banks can substitute between reserves and government bonds. Consequently, changes in reserve supply and interest on reserves influence banks' portfolio choices and therefore affect equilibrium bond prices.
+
+However, both banks and non-banks share the same belief about the government's type $i$ and evaluate default risk using the same posterior probability $\rho(B)$.
+
+
+
+\subsection*{Market Clearing}
+
+Bond markets clear in each period. In period $0$, we have that
+\[
+B = B^{CB}_0 + \mu\, B^A_0 + (1-\mu)\, B^N_0.
+\]
+In period $1$, the outstanding stock of bonds is allocated across the central bank, banks, and non-banks according to
+\[
+B = B^{CB}_0 + B^{CB}_1 + \mu\, B^A_1 + (1-\mu)\, B^N_1.
+\]
+Reserves are held only by banks. Let $m_t$ denote per-bank reserve holdings. Since the central bank issues aggregate reserves $M_t$, reserve-market clearing implies
+\[
+M_0 = \mu\, m_0,
+\qquad
+M_1 = \mu\, m_1.
+\]
+
+Goods-market clearing holds period by period in real terms.
+
+\subsection*{Government Types and Private Information}
+
+As in the baseline model, there are two fiscal-authority types $i\in\{S,R\}$. Two alternative sources of private information are considered.
+
+\paragraph{Hidden default payoff:} The government type differs in the real fallback payoff:
+\[
+\kappa_R > \kappa_S.
+\]
+A higher $\kappa$ corresponds to a less severe effective punishment from default.
+
+\paragraph{Hidden future fundamentals:} The government type differs in future real fundamentals:
+\[
+\phi_S > \phi_R.
+\]
+This captures private information about future fiscal capacity, growth, or the productivity of debt-financed expenditures.
+
+\subsection*{Default Probability}
+
+Let $Y$ be distributed with cumulative distribution function $D(\cdot)$. Then the default probability for type $i$ is given by
+\[
+\Pr(\text{default}\mid i,B)
+=
+D\!\left(
+\kappa_i + \frac{B - B^{CB}}{P_2} - \phi_i
+\right).
+\]
+Higher nominal bond issuance increases default risk, while larger central-bank bond holdings reduce default risk by raising the remittance loss associated with default.
+
+\subsection*{Beliefs and Bond Pricing}
+
+Creditors do not observe the government type, but they observe nominal borrowing $B$. Let the prior probability of the safe type be $\pi$. Posterior beliefs satisfy
+\[
+\rho(B)
+=
+\frac{\pi \Pr(B|S)}
+{\pi \Pr(B|S)+(1-\pi)\Pr(B|R)}.
+\]
+Under the zero-recovery assumption, the expected nominal payoff of one unit of government bonds in period $2$ is just the repayment probability under posterior beliefs:
+\[
+\mathbb{E}_1[\mathbf{1}^{R}_2(B)] = 1-\bar D_1(B).
+\]
+Because banks are indifferent at the margin between reserves and government bonds, bond prices satisfy
+\[
+Q^B_1 = \frac{1-\bar D_1(B)}{1+i^R_1},
+\]
+and
+\[
+Q^B_0(B) = \frac{\mathbb{E}_0[Q^B_1 \mid B]}{1+i^R_0}.
+\]
+Thus reserve rates enter bond pricing through bank arbitrage, while posterior beliefs determine bond prices through repayment probabilities.
+
+\subsection*{Equilibrium}
+
+
+Given central-bank policy instruments $\{M_0,M_1,B^{CB}_0,B^{CB}_1,i^R_0,i^R_1\}$, an equilibrium consists of
+\begin{itemize}	\setlength{\itemsep}{-10pt}
+	\item fiscal-authority borrowing choices $B_i$,
+	\item residual central-bank transfers $\{T^{CB}_0,T^{CB,R}_2,T^{CB,D}_2\}$ implied by the central-bank budget constraints,
+	\item bank portfolio choices $\{B^A_0,B^A_1\}$,
+	\item non-bank allocations $\{C^N_0,C^N_1,C^N_2,B^N_0,B^N_1\}$,
+	\item nominal bond prices $\{Q^B_0,Q^B_1\}$,
+	\item posterior beliefs $\rho(B)$,
+\end{itemize}
+such that
+\begin{itemize}\setlength{\itemsep}{-10pt}
+	\item the fiscal authority optimizes,
+	\item the central-bank budget constraints hold and determine residual transfers,
+	\item banks satisfy the reserve-bond indifference conditions,
+	\item non-banks solve their consumption-smoothing problem,
+	\item bond and reserve markets clear, and
+	\item beliefs satisfy Bayes' rule.
+\end{itemize}
+
+\subsection*{Equilibrium Characterization}
+
+\subsubsection*{Effect of Reserve Rates}
+
+The equilibrium can be characterized in a simple way. Banks are the marginal arbitrageurs in the bond market because they are the only agents that can substitute between reserves and government bonds. As a result, reserve rates pin down bond prices through the bank indifference conditions. Non-banks instead take bond prices as given and choose their bond holdings to smooth consumption over time.
+
+Given these prices, non-bank bond demand is determined by their Euler equations, while the central bank's bond holdings are fixed by policy. Market clearing then implies that banks absorb the residual supply of government bonds. Thus, in the current specification, banks determine bond prices at the margin, whereas non-banks affect the equilibrium allocation of bonds across sectors without independently determining the price.
+
+\subsubsection*{Effect of Reserve Supply}
+
+Reserve supply plays a more limited role in the current specification. Period-$0$ reserves affect the government's borrowing decision because $M_0$ changes the period-$0$ transfer $T^{CB}_0$ and therefore changes the government's initial resources. By contrast, once the period-$1$ transfer is normalized to zero, the period-$1$ central-bank budget constraint implies $M_1$ from the choices of $M_0$, $B^{CB}_1$, and the prevailing bond price.
+
+As a result, reserve supply does not directly pin down bond prices, which are instead determined by reserve rates through bank arbitrage. Moreover, $M_1$ does not directly affect default probabilities in the current zero-recovery specification because it enters the repayment-state and default-state remittances symmetrically and therefore cancels out of the government's repayment-default comparison. Thus, in the present model, $M_0$ matters through the government's initial financing, whereas $M_1$ is mainly a balance-sheet object implied by the central bank's period-$1$ budget constraint.
+
+\subsubsection*{Effect of Central-Bank Bond Purchases}
+
+Central-bank bond purchases matter primarily through the default-risk channel. Both period-$0$ purchases $B^{CB}_0$ and period-$1$ purchases $B^{CB}_1$ increase total central-bank bond holdings carried into period $2$. Under the current zero-recovery specification, this raises the remittance loss associated with sovereign default and therefore lowers default probabilities.
+
+By contrast, the portfolio-absorption effect of central-bank purchases has no independent equilibrium consequence in the current model. Since banks are residual holders and bond prices are pinned down by reserve rates through bank arbitrage, a change in the quantity of bonds held by the central bank does not by itself create a separate price effect through market clearing. Any effect of period-$1$ purchases on the period-$1$ bond price arises only because lower default risk raises expected repayment. Likewise, anticipated future purchases can affect the period-$0$ bond price only through their effect on expected future repayment and expected future bond prices.
+
+\medskip\medskip\medskip
+
+
+\section*{Market Segmentation in Previous Framework}
+
+Even though the model has segmentation whereby banks can hold reserves and bonds and non-banks can hold bonds only;  there is still no {\it "pricing wedge"} because: (i) banks are the marginal arbitrageurs, and  (ii) non-banks do not affect bond pricing directly.  These features are a direct consequence of banks being \underline{risk neutral}. 
+
+To introduce a meaningful {\it "segmentation wedge in asset prices"}, the  environment needs one of the following features: (i) risk averse banks; (ii) balance sheet constraints; or (iii) preferred habitat demand;  among other potential features.
+
+\subsection*{Risk Averse Banks}
+
+Let us now consider banks to be risk averse as it is the case with  non-banks. This is a way to capture that the bank's clients are risk averse, without having to model them. One could think the bank  as an ex-ante coalition of agents as in Diamond and Dybvig (1983).
+
+When banks are risk averse, reserves and government bonds are no longer perfect substitutes at the margin. Although banks can hold both assets, bonds expose them to sovereign default risk while reserves do not. As a result, banks require a risk premium to absorb government bonds. Because non-banks cannot hold reserves, this premium is not arbitraged away and appears as a wedge between the reserve rate and the bond yield. With risk averse banks,  then a {\it "wedge due to financial segmentation"} emerges and central bank purchases can have a portfolio balance effect on the economy.
+
+
+\subsection*{Bond Pricing with Risk-Averse Banks }
+
+I now {\it ``sketch"} how this might work. Let $\Lambda^A_{t+1}$ denote the nominal stochastic discount factor of banks between periods $t$ and $t+1$. Bank portfolio choices imply the following asset pricing conditions.
+
+At time $1$, from the bank's perspective, the price of a nominal government bond maturing in period $2$ satisfies the following
+\[
+Q^B_1 = E_1\!\left[\Lambda^A_2 \, \mathbf{1}^{R}_2(B)\right],
+\]
+where $\mathbf{1}^{R}_2(B)$ denotes the realized nominal payoff of one unit of government bond face value in period $2$.
+
+Reserves are one period nominal liabilities of the central bank that pay the gross nominal return $(1+i^R_1)$ with certainty. Hence from the bank's perspective, their pricing condition is given by
+\[
+1 = E_1\!\left[\Lambda^A_2 (1+i^R_1)\right].
+\]
+Combining the two conditions yields
+\[
+Q^B_1 =
+\frac{E_1\!\left[\Lambda^A_2 \mathbf{1}^{R}_2(B)\right]}
+{E_1\!\left[\Lambda^A_2 (1+i^R_1)\right]}.
+\]
+
+Since bond payoffs are low precisely in states where marginal utility is high (sovereign default states), banks require compensation for bearing this risk. A convenient reduced-form representation is therefore
+\[
+Q^B_1 = \frac{1-\bar D_1(B)}{1+i^R_1+\tau_1},
+\]
+where $\bar D_1(B)$ denotes the expected default probability under posterior beliefs and $\tau_1>0$ represents a risk premium reflecting banks' risk aversion and balance-sheet exposure to sovereign bonds.
+
+Similarly, the period-$0$ bond price satisfies
+\[
+Q^B_0(B) =
+\frac{E_0\!\left[Q^B_1 \mid B\right]}
+{1+i^R_0+\tau_0}.
+\]
+
+The terms $\tau_0$ and $\tau_1$ capture wedges between reserve rates and sovereign yields that arise because only banks can arbitrage between reserves and bonds and because banks require compensation to absorb risky sovereign debt.
+
+
+With risk averse banks, bond prices now depend on three factors: (i) expected sovereign repayment probabilities, (ii) reserve rates set by the central bank, and (iii) the risk premium required by banks to absorb sovereign debt.
+
+
+\subsubsection*{Effect of Central-Bank Bond Purchases}
+
+With risk averse banks, central bank bond purchases influence bond prices through two channels. First, as in the baseline specification, higher central bank bond holdings increase the remittance loss associated with sovereign default and therefore reduce default probabilities. Second, purchases reduce the quantity of risky sovereign bonds that must be held by risk averse banks. By lowering the exposure of bank balance sheets to sovereign risk, central bank purchases reduce the risk premium and raise bond prices. This second mechanism corresponds to the portfolio-balance channel of monetary policy.
+
+
+\subsubsection*{Risk Aversion and Nominal Determination}
+
+Beyond the pricing wedge and portfolio balance channel, risk aversion in the banking sector has a further consequence: it partially resolves the nominal indeterminacy of the risk-neutral specification. With risk-neutral banks, the price level path $\{P_0,P_1,P_2\}$ is entirely free. With risk-averse banks, inflation rates are pinned down, leaving only the initial price level $P_0$ as a free normalization.
+
+\paragraph{Source of indeterminacy with risk-neutral banks.} With constant marginal utility, banks are indifferent about the timing of consumption. Their sole equilibrium role is to arbitrage between reserves and bonds, pinning down $Q^B_t$ independently of $\{P_t\}$. Bank consumption in each period is a free residual: for any price level path, $C^A_t$ adjusts to absorb whatever remains after fiscal and non-bank consumption, satisfying goods-market clearing trivially. All three price levels are therefore unconstrained.
+
+\paragraph{Goods-market clearing conditions.} With real endowments $W^A_t$, $W^N_t$ and real default payoff $\kappa$, the aggregate resource constraints can be derived period by period by summing all agents' budget constraints and imposing bond and reserve market clearing.
+
+\medskip
+\noindent\textit{Period $0$.} Summing the fiscal budget constraint ($P_0 C^F_0 = P_0 X + Q^B_0 B + T^{CB}_0$ with $T^{CB}_0 = M_0 - Q^B_0 B^{CB}_0$), $\mu$ times the per-bank budget constraint, and $(1-\mu)$ times the per-non-bank budget constraint, and using bond market clearing $B = B^{CB}_0 + \mu\, B^A_0 + (1-\mu)\, B^N_0$ and reserve market clearing $M_0 = \mu\, m_0$, all nominal asset terms cancel, yielding
+\[
+C^F_0 + \mu\, C^A_0 + (1-\mu)\, C^N_0 = X + \mu\, W^A_0 + (1-\mu)\, W^N_0.
+\]
+
+\noindent\textit{Period $1$.} The fiscal authority has no endowment or consumption in period $1$. Summing $\mu$ times the per-bank and $(1-\mu)$ times the per-non-bank period-$1$ budget constraints and using bond market clearing $\mu\, B^A_1 + (1-\mu)\, B^N_1 = B - B^{CB}_0 - B^{CB}_1$, reserve market clearing, and the central bank period-$1$ budget constraint $M_1 = Q^B_1 B^{CB}_1 + (1+i^R_0)M_0$, all nominal asset terms cancel, yielding
+\[
+\mu\, C^A_1 + (1-\mu)\, C^N_1 = \mu\, W^A_1 + (1-\mu)\, W^N_1.
+\]
+
+\noindent\textit{Period $2$ (repayment).} Summing the fiscal, $\mu$ times the per-bank, and $(1-\mu)$ times the per-non-bank period-$2$ budget constraints under repayment and using bond market clearing $\mu\, B^A_1 + (1-\mu)\, B^N_1 = B - B^{CB}$ and the central bank transfer $T^{CB,R}_2 = B^{CB} - (1+i^R_1)M_1$, all nominal terms cancel, yielding
+\[
+C^{F,R}_2 + \mu\, C^A_2 + (1-\mu)\, C^N_2 = Y + \phi.
+\]
+Under default, the same derivation gives $C^{F,D}_2 + \mu\, C^A_2 + (1-\mu)\, C^N_2 = \kappa$, which is also purely real since $\kappa$ is a real quantity.
+
+\medskip
+Because $W^A_t$, $W^N_t$, $X$, $Y$, $\phi$, and $\kappa$ are all real, the right-hand side of each goods-market clearing condition is independent of the price level path $\{P_t\}$.
+
+\paragraph{Inflation is determined but the price level is not.} With risk-averse banks maximizing $u(C^A_0) + \beta\, u(C^A_1) + \beta^2\, \mathbb{E}_0[u(C^A_2)]$ subject to their budget constraints, the first-order condition for reserves yields
+\[
+\frac{u'(C^A_t)}{P_t} = \beta(1+i^R_t)\,\mathbb{E}_t\!\left[\frac{u'(C^A_{t+1})}{P_{t+1}}\right],
+\]
+which, since $u''<0$, pins down bank consumption across adjacent periods as a function of the inflation rate $P_{t+1}/P_t$ and the reserve rate $i^R_t$. Analogous Euler equations pin down non-bank consumption, while $C^F_t$ is determined by the fiscal authority's budget constraint. Since each $C^j_t$ on the left-hand side of the goods-market clearing conditions depends on inflation rates, and the right-hand side is a fixed real quantity, the goods-market clearing conditions determine the inflation rates $P_1/P_0$ and $P_2/P_1$ that equate aggregate consumption to the available endowment in each period.
+
+However, the initial price level $P_0$ is not determined. Scaling all nominal variables ($P_0, P_1, P_2$ and all nominal asset quantities) by a common factor $\lambda>0$ leaves all real allocations unchanged: inflation rates, real consumption, real bond prices $Q^B_t/P_t$, and real reserve holdings $M_t/P_t$ are all invariant. Thus $P_0$ is a free normalization.
+
+\paragraph{Pass-through of reserve rate to inflation:} Because inflation is now endogenous, reserve rates affect the real value of government debt. The Euler equations, budget constraints, and goods-market clearing conditions jointly determine the consumption sequence, real interest rates, and inflation rates. The bank's reserve Euler equation implies the Fisher relation
+\[
+\frac{P_{t+1}}{P_t} = \frac{1+i^R_t}{1+r_t},
+\qquad
+1+r_t \equiv \frac{u'(C^A_t)}{\beta\, \mathbb{E}_t[u'(C^A_{t+1})]}.
+\]
+When the central bank raises $i^R_t$, the real rate $r_t$ may also adjust through general equilibrium effects: banks shift consumption toward the future, non-banks absorb the opposite shift, and bond prices adjust. However, aggregate real consumption in each period is tied to the fixed real endowment by goods-market clearing. This limits how much $r_t$ can move and ensures that most of the increase in $i^R_t$ passes through to higher inflation $P_{t+1}/P_t$ rather than higher $r_t$.
+
+The pass-through rate from $i^R_t$ to inflation is monotonically increasing in three quantities:
+\begin{itemize}\setlength{\itemsep}{-5pt}
+	\item \textit{Bank share of aggregate consumption} ($\mu$). When banks are the entire economy ($\mu=1$), goods-market clearing fixes $C^A_t$ at the endowment, the real rate is entirely independent of $i^R_t$, and the pass-through is one-for-one. When banks are negligible ($\mu\to 0$), they freely adjust their consumption profile without disturbing goods-market clearing, $r_t$ absorbs the full change in $i^R_t$, and the pass-through vanishes.
+	\item \textit{Bank risk aversion} ($\gamma^A$). More risk-averse banks are less willing to shift consumption intertemporally, so $r_t$ moves less for a given change in $i^R_t$. In the limit $\gamma^A \to 0$ (risk neutrality), banks freely adjust consumption and the nominal indeterminacy of the risk-neutral specification is recovered.
+	\item \textit{Non-bank risk aversion} ($\gamma^N$). More risk-averse non-banks resist absorbing the consumption shift that banks attempt, forcing more of the adjustment through inflation rather than through redistribution of consumption across agent types.
+\end{itemize}
+
+\paragraph{Inflationary finance 
+channel:} Higher inflation raises $P_2$ and reduces the real value of nominal debt $(B-B^{CB})/P_2$ in the default probability
+\[
+D\!\left(\kappa_i + \frac{B-B^{CB}}{P_2} - \phi_i\right),
+\]
+lowering sovereign default risk. Thus, with risk-averse banks and endogenous inflation, reserve rates open a channel through which monetary policy affects sovereign default risk via the real value of nominal debt. This channel is absent in the risk-neutral specification where inflation is indeterminate.
+
+\paragraph{Comparison with a Taylor rule.} A Taylor rule also pins down inflation rates (through a feedback rule on $i^R_t$) but leaves $P_0$ as a free normalization. Risk-averse banks and a Taylor rule therefore achieve the same degree of nominal determinacy, differing only in mechanism: goods-market clearing versus a monetary-policy feedback rule. Either alone suffices to pin down the inflation path.
+
+However, the two mechanisms generate different comparative statics for the effect of reserve rates on inflation. Without a Taylor rule (exogenous $i^R_t$), the analysis above implies that a higher reserve rate raises inflation, because real rates are constrained by real fundamentals and cannot fully absorb the increase in $i^R_t$. Under an active Taylor rule ($\phi_\pi > 1$), the standard New Keynesian logic applies: the central bank raises $i^R_t$ more than one-for-one in response to inflation, which increases the real rate and stabilizes inflation. In the first case, higher reserve rates reduce the real value of nominal debt and lower default risk. In the second case, higher reserve rates tighten financial conditions and may worsen borrowing terms.
+
+\subsection*{A Limitation of the Current Setup and Two Minimal Fixes}
+
+A limitation of the current setup is that reserve issuance relaxes the government's period-$0$ financing need too easily. Combining the fiscal authority's period-$0$ budget constraint with the central bank's period-$0$ budget constraint gives
+\[
+P_0 C^F_0 = P_0 X + Q^B_0(B) B + T^{CB}_0,
+\qquad
+T^{CB}_0 = M_0 - Q^B_0(B) B^{CB}_0,
+\]
+so that
+\[
+P_0 C^F_0
+=
+P_0 X + Q^B_0(B)\big(B-B^{CB}_0\big)+M_0.
+\]
+Holding central-bank bond purchases fixed, an increase in $M_0$ raises the fiscal authority's initial resources one-for-one and can substitute for risky sovereign issuance.
+
+The problem is that the model makes reserve finance cheaper than sovereign debt finance for a given amount of period-$0$ resources. To raise one extra unit of resources with reserves, the consolidated public sector issues one extra unit of reserves today and owes the gross reserve return $(1+i^R_0)$ next period. By contrast, to raise one extra unit of resources through sovereign bonds, the fiscal authority must issue face value $1/Q^B_0(B)$, so the gross financing cost is $1/Q^B_0(B)$. The bond-reserve funding wedge is especially transparent at time $1$:
+\[
+\frac{1}{Q^B_1}=\frac{1+i^R_1+\tau_1}{1-\bar D_1(B)}
+> 1+i^R_1,
+\qquad
+Q^B_0(B)=\frac{E_0[Q^B_1\mid B]}{1+i^R_0+\tau_0}.
+\]
+Thus sovereign financing carries a higher yield than reserves because bond prices are discounted by default risk and, with risk-averse banks, by the additional premium $\tau_t$. Reserve issuance therefore gives the consolidated public sector a cheaper funding instrument than risky sovereign debt.
+
+The result is that reserve issuance looks too attractive: it finances period-$0$ spending at a lower effective cost than risky sovereign debt, yet the associated reserve liabilities do not tighten the government's future repayment-default tradeoff. Since reserves are voluntarily held, banks face no explicit reserve-holding friction, and the central bank can run negative net worth, sufficiently large reserve issuance can in principle eliminate the need for risky sovereign borrowing. 
+
+
+
+\subsubsection*{How the Literature Disciplines Reserve Issuance}
+
+\paragraph{Reserve demand.} The IMF paper by \citet{ChenKourentzesVeyrune2023} is mainly an operational paper, not a sovereign-default or DSGE paper, but it provides a useful motivation for imposing a downward-sloping reserve demand curve. Its basic mechanism is a buffer-stock or liquidity-insurance story. Banks hold reserves because reserves are the most liquid asset in the system and help them absorb unexpected payment outflows, satisfy reserve or regulatory needs, and avoid costly short-term funding when liquidity is tight. As aggregate reserves rise, the marginal value of one more unit of reserves falls because banks are already better insured against settlement shocks. In a corridor system this implies that the short-term rate moves down toward the deposit facility rate as reserves become abundant, while when reserves are scarce banks are closer to borrowing at the lending facility and the marginal value of reserves is high.
+
+\begin{quote}\small
+The demand for reserves describes the rate at which banks are ready to borrow and lend reserve as a function of aggregated reserves in the system. Banks seek to keep a certain buffer of reserves to absorb unexpected payments out of their account at the central bank. Their demand for reserves depends on the risk and predictability of payment shocks, interbank market functioning, the cost of liquidity-management errors, and reserve or regulatory requirements. With standing lending and deposit facilities, short-term rates are expected to decline as reserves increase, converging to the deposit facility rate.
+\end{quote}
+
+The paper also stresses that more reserves are not always better. Excess reserves are low-yielding assets on bank balance sheets and can distort money-market intermediation, so there is a cost to holding too much liquidity. That is why the reserve-demand curve is not flat everywhere: reserves provide insurance, but with diminishing marginal benefit. For the present draft, the key implication is that a reserve-demand curve is naturally motivated by liquidity services, that it slopes down because the marginal convenience yield of reserves falls as reserve buffers rise, and that in practice it is often represented by a sigmoid or logistic schedule because rates are bounded by lending and deposit facilities.
+
+\paragraph{Central-bank solvency.} The motivation for a central-bank solvency or fiscal-support constraint is different. The relevant point in \citet{DelNegroSims2015}, \citet{HallReis2015}, and \citet{Reis2017QE} is that a central bank can always make a payment today by issuing more reserves, so solvency is not about running out of cash. The economically relevant question is whether the central bank can keep following its policy rule without reserve liabilities exploding or without being forced to generate extra inflation.
+
+\citet{DelNegroSims2015} give the clearest statement of the distinction between fiscal backing and fiscal support. Their argument is that even if fiscal policy backs the price level in the fiscal-theory sense, the central bank may still need Treasury recapitalization to keep hitting its inflation target if its balance sheet is badly impaired.
+
+\begin{quote}\small
+Fiscal backing requires that explosive inflationary or deflationary behavior of the price level be ruled out by fiscal policy. But even when fiscal policy guarantees a unique price level and inflation is driven by monetary policy, it is possible that the central bank, if its balance sheet is sufficiently impaired, may need recapitalization in order to maintain its commitment to a policy rule or an inflation target. Such recapitalization is a within-government transaction, unrelated to whether fiscal backing is present.
+\end{quote}
+
+Their extra step is important for the present note. If the central bank has a large long-duration balance sheet, then higher expected inflation or higher interest rates reduce the value of its assets. If the Treasury will not support it, the central bank may need more seigniorage to cover the hole, and that can validate the inflation expectations. In that sense, solvency becomes a source of indeterminacy rather than a mere accounting issue.
+
+\citet{HallReis2015} frame the issue more institutionally. They define central-bank financial stability by whether reserves stay stationary rather than drift upward forever. The key object in their analysis is the charter or dividend rule.
+
+\begin{quote}\small
+A central bank can always meet its obligation to deliver the mandated dividend to the government because it has the unlimited power to borrow from commercial banks by issuing reserves. But a central bank cannot continue as a functioning financial institution independent of the government if it appears to be on a path of issuing an exploding volume of reserves. In that case, the central bank would be engaging in a Ponzi scheme.
+\end{quote}
+
+So for Hall and Reis, the relevant solvency constraint is that if losses must always be financed by more interest-bearing reserves, and the institutional rules do not allow negative dividends, recapitalization, or make-up reductions in future remittances, then reserves can drift explosively. That is the relevant notion of insolvency.
+
+\citet{Reis2017QE} use the same logic as a limitation on quantitative easing. In his baseline, if the Treasury fully backs the central bank, losses are irrelevant for the consolidated government, so quantitative easing can be very large. But in a fiscal crisis that assumption is no longer innocuous.
+
+\begin{quote}\small
+If the central bank can potentially receive payments from the fiscal authority when net income is negative, then it can implement quantitative easing while always staying solvent. In a fiscal crisis, though, the fiscal authority may not be willing to provide this fiscal backing to the central bank, which puts a solvency constraint on the central bank's actions, in the form of a lower bound on the possibly negative dividends to the fiscal authority.
+\end{quote}
+
+So Reis's point is that without fiscal backing, negative remittances are no longer just an accounting mirror image. They become a genuine policy constraint that limits balance-sheet expansion.
+
+\paragraph{Two disciplines.} Taken together, these two disciplines operate on different margins. A reserve-demand curve limits reserve issuance from the private side, because banks stop wanting extra reserves unless they receive enough liquidity benefit or enough remuneration. A central-bank solvency constraint limits reserve issuance from the public side, because the Treasury cannot treat arbitrarily negative future remittances as harmless if the central bank cannot roll losses forever without reserve explosion or extra inflation. In the current draft, there is effectively neither discipline: banks can hold reserves freely with no explicit diminishing liquidity value, and the central bank can run negative net worth and make negative transfers with no fiscal-support limit. That is why reserve issuance currently looks too powerful.
+
+\subsubsection*{A Downward-Sloping Reserve Demand Curve}
+
+A first minimal way to discipline this margin is to introduce a downward-sloping reserve demand curve. A simple way to formalize this is to let banks derive utility not only from consumption but also from real reserve holdings:
+\[
+u(C^A_0)+\beta u(C^A_1)+\beta^2\mathbb{E}_0[u(C^A_2)]
++ \chi_0 \ell\!\left(\frac{m_0}{P_0}\right)
++ \beta \chi_1 \ell\!\left(\frac{m_1}{P_1}\right),
+\]
+where $\ell'(\cdot)>0$ and $\ell''(\cdot)<0$. Then the reserve Euler equation becomes
+\[
+\frac{u'(C^A_t)}{P_t}
+=
+\frac{\chi_t \ell'\!\left(m_t/P_t\right)}{P_t}
++ \beta(1+i^R_t)\,\mathbb{E}_t\!\left[\frac{u'(C^A_{t+1})}{P_{t+1}}\right].
+\]
+The extra term is the marginal convenience yield of reserves. Because it is decreasing in reserve holdings, reserve quantities are no longer free: for a given reserve rate, there is a finite demand for reserves. Equivalently, one can summarize the same force through an inverse reserve-demand curve
+\[
+i^R_t = \mathcal{I}_t\!\left(\frac{m_t}{P_t},\text{state}\right),
+\qquad
+\mathcal{I}'_t>0,
+\]
+and let reserve quantities be pinned down endogenously by bank demand and reserve-market clearing rather than chosen independently by policy.
+
+
+
+\subsubsection*{A Central-Bank Solvency Constraint}
+
+A second minimal way to discipline reserve issuance is to impose a central-bank solvency or fiscal-support constraint. A reduced-form analogue in the present finite-horizon environment is to impose a lower bound on period-$2$ remittances,
+\[
+T^{CB,R}_2 \ge -\bar{\Xi},
+\qquad
+T^{CB,D}_2 \ge -\bar{\Xi},
+\]
+where $\bar{\Xi}$ summarizes the present value of future seigniorage, central-bank capital, or maximum fiscal support. Using the remittance equations above, this implies
+\[
+B^{CB}-(1+i^R_1)M_1 \ge -\bar{\Xi},
+\qquad
+-(1+i^R_1)M_1 \ge -\bar{\Xi}.
+\]
+The default-state condition is tighter, so
+\[
+(1+i^R_1)M_1 \le \bar{\Xi}.
+\]
+Under this solvency bound, reserve issuance can still help finance the government, but only up to the amount that can be credibly serviced without unbounded future losses or explicit fiscal recapitalization.
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{Comparison of the Two Approaches}
+
+\noindent {\color{red} \underline{Yang to Pedro}: Is there a microfoundation for this liquidity channel in monetarist models?
+	
+\noindent \underline{Pedro to Yang}: I have a detailed response in a new subsection
+
+\medskip\medskip
+
+\noindent \underline{Yang to Pedro}: This way of imposing a solvency constraint seems to be too mechanical. It is no better to setting an upper bound for $M_0$. 
+	
+\noindent \underline{Pedro to Yang}: Totally agree!}
+
+\bigskip
+
+
+
+A downward-sloping reserve demand introduces a continuous marginal cost. As reserve supply expands, the private sector requires higher remuneration to hold additional liquidity, generating an endogenous wedge between reserves and bonds. This approach captures portfolio balance effects, is consistent with segmented markets and risk-averse banks, and delivers smooth comparative statics. Its main cost is the need to explicitly model reserve demand and potentially calibrate liquidity parameters.
+
+By contrast, a solvency constraint operates through a quantity restriction. It imposes an upper bound on reserve issuance based on the present value of future central bank revenues, as in \citet{DelNegroSims2015} and \citet{HallReis2015}. While simple to implement, this approach has several drawbacks. It provides little discipline in early periods, generates a binary cost structure, and leaves the pricing wedge between reserves and bonds unaffected. Moreover, it may introduces numerical challenges becuase of the kink and is difficult to reconcile with evidence that central banks can operate with negative equity for prolonged periods.
+
+\subsubsection*{Implications for Signaling}
+
+The distinction between the two approaches is particularly important in a signaling environment, where informative equilibria require that signals are costly at the margin.
+
+With downward-sloping reserve demand, the marginal cost of reserve issuance increases smoothly with quantity. A government with weaker fiscal capacity faces rising financing costs when substituting away from bond issuance, as higher reserve supply compresses the liquidity premium and requires higher remuneration to clear the market. This generates a continuous price signal through the reserve rate and the reserve--bond spread, allowing investors to update beliefs in real time and supporting separating equilibria.
+
+In contrast, a solvency constraint generates a discontinuous cost schedule. Reserve financing remains effectively cheap until the constraint binds, at which point issuance becomes infeasible. Both types of governments optimally exploit cheap reserves up to this limit, leading to pooling behavior. Information is revealed only at the point of constraint, reducing the informativeness of prices and weakening the signaling mechanism.
+
+\subsubsection*{Microfoundations for Reserve Demand}
+
+The downward-sloping demand for reserves can be microfounded using models of liquidity and collateral scarcity. The most direct paper that aligns with our framework is \citet{Williamson2016}, where assets differ in pledgeability. Reserves provide superior liquidity services relative to long-term bonds, relaxing collateral constraints for financial intermediaries. As the supply of reserves increases, the marginal value of liquidity declines, generating a downward-sloping demand schedule and an endogenous liquidity premium. This mechanism also delivers a portfolio balance channel: central bank asset swaps affect equilibrium yields by altering the relative scarcity of liquid collateral.
+
+An alternative microfoundation is provided by \citet{Williamson2015}, where banks face balance sheet or regulatory costs. In this environment, demand for reserves is not perfectly elastic even when they earn interest, providing a foundation for floor systems and the interaction between reserve remuneration and interbank rates. More broadly, \citet{Williamson2012} highlights the distinction between public and private liquidity and rationalizes deviations from the Friedman rule, offering useful conceptual background.
+
+
+\paragraph{Aside.} The frameworks in \citet{Williamson2016,Williamson2015,Williamson2012} build on the monetary search foundations of \citet{LagosWright2005} and \citet{RocheteauWright2005}. These models can be interpreted as two-sector economies, in the spirit of \citet{lucas1987money}, featuring distinct trading environments with different goods and frictions. In the first decentralized sub-market (DM), agents engage in bilateral trade under search and matching frictions. This environment facilitates the introduction of trading frictions and provides a transparent way to model exchange of goods for assets. Because of limited commitment and the absence of record-keeping (other papers emphasize other frictions), transactions in the DM require a medium of exchange, generating an endogenous demand for liquid assets. 
+
+By contrast, the centralized sub-market (CM) is frictionless and competitive. Agents can rebalance portfolios, settle obligations, and adjust asset holdings without frictions. Under quasi-linear preferences, wealth effects vanish in the CM, implying that the distribution of asset holdings collapses at the beginning of each period. This feature greatly simplifies aggregation and allows the model to remain tractable despite the presence of heterogeneity in the DM.
+
+Thus the structure in \citet{LagosWright2005} and \citet{RocheteauWright2005} results that one good needs to be paid with a particular asset (DM good), while the other does not (CM good). In particular, this segmentation between a frictional DM and a frictionless CM provides a microfoundation for asset demand driven by liquidity services. In particular, it rationalizes why certain assets, such as reserves, command a liquidity premium and are held despite potentially lower returns. In the context of the present model, this framework offers a natural interpretation of reserve demand and the emergence of a reserve--bond wedge as equilibrium outcomes driven by liquidity considerations.
+
+
+\subsubsection*{Summary}
+
+The key limitation of the current setup is the absence of a marginal cost of reserve issuance. While a solvency constraint can cap total issuance, it fails to provide the continuous discipline required in a signaling framework. Introducing a downward-sloping reserve demand instead generates an endogenous liquidity premium, captures portfolio balance effects, and produces smooth and informative price signals. These features restore the signaling role of government borrowing and provide a more coherent and empirically relevant discipline on reserve issuance.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{Modeling Reserves}
+
+A central modeling choice in monetary--fiscal frameworks concerns how to capture the demand for central bank liabilities (reserves). At a fundamental level, reserves are valued not only because they pay a pecuniary return (e.g., interest on reserves), but also because they provide liquidity services: they facilitate transactions, serve as a safe store of value, and relax frictions in payment and intermediation.
+
+Other the approach of Williamson in the search-theoretic literature, there are several approaches in the literature to capture these features that can be useful for our set up without complicating too much our set up. These are: (i) demand for reserves is heavily influenced by uncertainty in bank account balances and payment shocks, (ii) introducing reserves directly in agents' utility (``reserves-in-utility'', RIU), and (iii) modeling reserves as relaxing a liquidity or cash-in-advance type constraint. While these approaches differ in implementation, they are closely related and, under appropriate conditions, can be shown to be equivalent.
+
+
+
+\subsubsection*{Reserves as Precautionary Motive}
+
+The demand for reserves is heavily influenced by uncertainty in bank account balances and payment shocks. The modeling approach started with \citet{poole1968commercial}. Below I describe some papers.
+\begin{itemize}
+\item \citet{poole1968commercial} proposes a framework where a representative bank faces uncertain end-of-day payment flows and must decide on a target level of reserves before those flows are known. 
+	
+The bank balances the opportunity cost of holding non-interest-bearing (or low-interest) reserves against the penalties of failing to meet reserve requirements or needing to borrow from the central bank's discount window at a premium. 
+	
+These models derive a downward-sloping demand curve for reserves, where demand is sensitive to the spread between market interest rates and the central bank's lending/deposit rates. 
+
+
+\item \citet{clouse1999fixed} develop an equilibrium model, based on \citet{poole1968commercial},  of the funds market that includes bank-specific reserve shocks, both market and discount window borrowing and both fixed and variable costs for banks going to the discount window. Because of the fixed cost, the market will be characterized by heterogeneity across banks, some banks will go to the discount window while other banks will borrow in the market to avoid a deficiency, and also heterogeneity across time, there will be periods when no bank borrows at the window, and there will be periods where, in equilibrium, some banks must borrow at the window.
+	
+\end{itemize}
+
+
+
+
+
+
+\subsubsection*{Money/Reserves in the Utility Function }
+
+This class of models builds on the tradition of \citet{sidrauski1967rational}, where money (or more generally, liquid assets) enters the utility function directly. The key idea is that holding liquid assets provides ``convenience'' or ``liquidity'' services, over and above their financial return. As a result, agents are willing to hold these assets even when their return is below that of other assets.
+
+When banks are not explicitly modeled, ``reserves'' should be interpreted as a reduced-form representation of liquid central bank liabilities held by the private sector. In representative-agent environments, these objects stand in for the transaction and liquidity services that would otherwise be generated by an explicit banking sector. In this sense, MIU specifications proxy for the underlying role of reserves in facilitating payments and providing safe, liquid storage of value.
+
+Money in the utility function has a long tradition in monetary economics:
+\begin{itemize}
+\item \citet{sidrauski1967rational}: \textit{Modeling approach:} Money in utility. This is the canonical benchmark in which real balances enter utility directly. It provides the foundational framework to capture liquidity services in a simple, reduced-form way.
+	
+\item \citet{feenstra1986functional}: \textit{Modeling approach:} Shows that money-in-utility formulations are equivalent to transaction cost or cash-in-advance setups under suitable transformations. This result provides a strong theoretical justification for using utility-based specifications as a reduced-form representation of transaction frictions.
+	
+\item \citet{schmittgroheuribe2004optimal}: \textit{Modeling approach:} Embeds money in utility within a DSGE framework to study optimal monetary and fiscal policy. Liquidity services play a central role in shaping the interaction between inflation, taxation, and government liabilities.
+
+\end{itemize}
+	
+
+Reserves in the Utility Function (RIU) is far less common but it has been used in recent papers:
+\begin{itemize}
+\item \citet{hornstein2010monetary}: \textit{Modeling approach:} Introduces monetary assets directly into utility to obtain well-behaved demand functions for liquid assets. This framework is used to study how the price level is determined when interest on reserves is the main policy instrument and how different fiscal targets (e.g., total debt vs.\ composition) affect equilibrium outcomes.
+
+\item \citet{lopez2023reserve} model the liquidity and regulatory value of reserves as a convenience yield on reserves, i.e., a benefit
+of holding reserves above and beyond earning the interest on reserves. They assumed convenience value function is $\nu(R, LD)$, where $R$ are reserves and $LD$ are liquid deposits which capture checking deposits,
+savings deposits and other deposits that can be easily withdrawn (as opposed to time deposits). The convenience yield is then defined as the marginal value of additional reserves $\nu_R(R, LD)$, reflects the marginal liquidity and regulatory value of additional reserves. This convenience yield function is conceptually similar to that for Treasuries in \citet{krishnamurthy2012aggregate}, where they model the
+convenience yield on Treasuries using a function $\nu'(Treasuries/GDP)$. In  \citet{lopez2023reserve} the authors allow for the two inputs to enter separately.
+
+In the Appendix \citet{lopez2023reserve} provides a micro foundation for the $\nu(R, LD)$ function, focusing on the liquidity value of reserves and showing
+how $\nu(R, LD)$ captures saved transactions costs from managing deposit flows with reserves. In particular, they consider a bank's liquidity management problem. In particular, banks face a fixed cost of adjusting their securities holdings, along with a constant variable cost of adjustment. In particular, they assume that deposit outflows met using reserves incur no transactions costs while deposit outflows that cannot be met using reserves must be made by reducing holdings of bonds.  However, selling bonds results in transactions costs that are an increasing and convex function.
+
+	
+\end{itemize}
+
+\subsubsection*{Reserves as a Liquidity-In-Advance Constraint}
+
+An alternative, but closely related, approach is to model reserves through explicit transaction constraints. The classic example is the cash-in-advance (CIA) constraint, which requires that purchases be backed by liquid assets. More generally, one can consider a ``liquidity-in-advance'' constraint that restricts the set of assets that can be used for transactions.
+
+Importantly, following \citet{feenstra1986functional}, these constraint-based formulations can often be mapped into a utility-based representation. As such, they can be viewed as alternative ways of modeling the same underlying economic force: the demand for liquidity. Key examples include:
+\begin{itemize}
+
+\item \citet{caballero2016safe}: \textit{Modeling approach:} Introduces a liquidity-in-advance constraint requiring that spending be backed by safe, liquid assets. Because reserves are perfectly liquid, they relax this constraint and command a premium over their financial return. 
+
+Consumption is modeled as a direct result of agents ``dying'' and consuming their accumulated wealth. In equilibrium, aggregate consumption ($C$) is a constant fraction ($\theta$) of aggregate wealth ($W$):
+\[
+C_t = \theta W_t
+\]
+where $\theta$ is the rate at which agents exit the economy (the ``death rate''), which also represents the marginal propensity to consume out of wealth.  The core mechanism is a constraint requiring that a fraction of spending or wealth be held in assets that are "safe", meaning they preserve value in all states of the world. In particular, we have that
+\[
+W^{S}_{t+1} \geq \rho \mu W_t
+\]
+where $W^{S}_{t+1}$ is the  supply of safe assets (including central bank reserves and government debt) and $\rho \mu$ is a  parameter capturing the safety requirement or intensity of demand for safe stores of value
+
+The model shows that shortages of safe assets can lead to a ``safety trap'', where the economy becomes constrained by insufficient liquidity, especially at the zero lower bound. In this context, reserves play a central role as providers of liquidity services and as part of the aggregate supply of safe assets.
+	
+\item \citet{benigno2017safe}: \textit{Modeling approach:} Models liquidity services through a constraint where both central bank reserves and private safe assets facilitate transactions. Assets that relax the constraint trade at a premium, and the central bank can influence this premium through both the interest rate and the quantity of reserves. Reserves are therefore valuable because they directly ease liquidity constraints and stabilize the system in the presence of shocks.
+
+The authors model liquidity as the resaleability of an asset in exchange for consumption goods. Several assets can be brought to buy goods, but they have different liquidity properties which can be discovered only at the time of purchasing. In the goods market, the portfolio of assets cannot be rebalanced; nor can new assets be traded. The following liquidity constraint applies:
+\begin{equation}
+	\sum_{j=1}^{N} \gamma_t(j)\big(1 + i_{t-1}(j)\big) B_{t-1}(j) \geq P_t C_t,
+\end{equation}
+where $N$ is the number of assets available and $B_{t-1}(j)$ is the value of asset $j$, in units of currency, held in the agent's portfolio. At the time of purchasing goods, each security already matures at a predetermined nominal interest rate, specific to the asset and given by $(1 + i_{t-1}(j))$. $P_t$ is the nominal price index while $C_t$ is real consumption. Securities differ in their liquidity properties, which are only known when they are exchanged for goods: $\gamma_t(j)$ indicates the fraction of assets held from a previous period that can be used to purchase goods, with $0 \leq \gamma_t(j) \leq 1$. Assets can be ordered from the worst to the best in terms of liquidity properties assuming that $\gamma_t(j)$ is a non-decreasing function of $j$.
+
+The authors mention that liquidity in their model can have a dual interpretation. On the one hand, it can simply capture the degree of ``acceptance'' of an asset in exchange for goods. We could think of a consumer who goes to the goods market and discovers that, among all the securities that he has carried along, only a fraction are accepted to buy goods. On the other hand, it could simply refer to the fraction of securities which can be fully mobilized and exchanged for goods. In line with this interpretation, it can capture the intrinsic liquidity of the asset or a sort of delay in payment. 
+
+
+	
+\item \citet{niepelt2024money}: \textit{Modeling approach:} Combines elements of utility-based and constraint-based frameworks. Households derive utility from holding liquid assets such as deposits or CBDC, while reserves are held by banks and enter indirectly as an input into the production of these liquid claims. In this setup, reserves are essential for supporting the provision of transaction services, even though they do not enter household utility directly. This highlights how reserves can generate liquidity services through the banking system rather than through direct holdings.
+
+The representative household takes prices, returns, profits, and taxes as given and solves
+\begin{equation}
+	\max_{\{c_t,k_{t+1},m_{t+1},n_{t+1}\}_{t\geq 0}} \sum_{t=0}^{\infty} \beta^t \mathbb{E}_0 \big[u(c_t, z_{t+1})\big]
+\end{equation}
+subject to
+\begin{equation}
+	k_{t+1} + m_{t+1} + n_{t+1} = k_t R_t^k + m_t R_t^m + n_t R_t^n + w_t + \pi_t - c_t - \tau_t,
+\end{equation}
+\begin{equation}
+	k_{t+1}, m_{t+1}, n_{t+1} \geq 0
+\end{equation}
+where, $c_t$ denotes household consumption at date $t$, $z_{t+1}$ denotes ``effective real balances'' carried from $t$ into $t+1$; $k_{t+1}, m_{t+1}, n_{t+1}$ denote capital, CBDC (or ``money''), and bank deposits carried from $t$ into $t+1$, respectively; $R_t^k$, $R_t^m$, and $R_t^n$ denote gross rates of return on capital, CBDC, and deposits, respectively; and $w_t$, $\pi_t$, and $\tau_t$ denote wage income, profit income, and taxes, respectively.
+
+Effective real balances are a constant elasticity of substitution composite of money and bank deposits,
+\begin{equation}
+	z_{t+1} \equiv z(m_{t+1}, n_{t+1}; \tilde{\lambda}_t) \equiv \frac{1}{1 - \tilde{\lambda}_t}
+	\left( \tilde{\lambda}_t m_{t+1}^{\frac{\eta - 1}{\eta}} + (1 - \tilde{\lambda}_t) n_{t+1}^{\frac{\eta - 1}{\eta}} \right)^{\frac{\eta}{\eta - 1}},
+\end{equation}
+where $\tilde{\lambda}_t \in (0,1)$ indexes liquidity benefits of money relative to deposits, reflecting factors such as privacy or convenience of use. Parameter $\eta > 1$ represents the elasticity of substitution.
+
+\bigskip
+
+Banks issue deposits and equity to fund operations as well as investments in capital and reserves. We abstract from government bonds in bank balance sheets. Formally, the author assumes that liquidity substitution costs per deposit, $\omega_t(\zeta_{t+1}, \zeta_{t+1})$, are strictly decreasing in the bank's reserves-to-deposits ratio, $\zeta_{t+1} \equiv r_{t+1}/n_{t+1}$, as well as the aggregate ratio among banks, $\bar{\zeta}_{t+1} \equiv \bar{r}_{t+1}/\bar{n}_{t+1}$. When both the bank and its peers do not engage in liquidity transformation but only invest in reserves---banks are ``narrow banks'' and deposits amount to ``synthetic CBDC''---then liquidity substitution is not needed, $\omega_t(1,1) = 0$. Lower reserve holdings generate liquidity substitution costs. The author assumes that these costs are sufficiently high that active banks always find it profitable to hold some reserves; that is, in any equilibrium with deposits, $\zeta_{t+1}$ is strictly positive. We focus on symmetric equilibria.
+	
+\end{itemize}
+
+
+\subsubsection*{Implications for Our Framework}
+
+These frameworks offer a coherent representation of reserve demand. They capture the core economic mechanism; i.e, reserves being valued beyond their pecuniary return, while delivering a well-behaved demand schedule in a parsimonious way.
+
+This is particularly relevant for our setting. Although \citet{Williamson2016,Williamson2015,Williamson2012} provide detailed microfoundations grounded in the \citet{LagosWright2005} environment, they rely on additional structure, such as segmented markets, matching frictions, and explicit intermediation, that is not central to the mechanism we study.
+
+Given the availability of these reduced-form approaches, incorporating microfoundations for reserves in my opinion is not essential. If the objective is to maintain clarity and highlight the signaling role of reserve issuance, it is sufficient to adopt a specification that yields a smooth, downward-sloping demand for reserves.
+
+In this sense, an RIU or equivalent liquidity-based formulation captures the relevant trade-offs, the marginal value of liquidity and the cost of issuance, while keeping the model tractable and closely aligned with the monetary--fiscal interactions at the core of our analysis.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%
+
+\section*{Some Additional Observations}
+
+In the previous environments, we abstract from several institutional features to maintain tractability. In particular, the environments have the following implicit assumptions:
+	\begin{itemize}\setlength{\itemsep}{-5pt}
+		
+		\item Banks are not required to hold reserves. They choose reserves voluntarily as part of their portfolio, no binding constraints. 
+		\item Perfect interbank markets. As a result, banks can freely reallocate reserves and bonds. Thus, there are no:	(i) interbank frictions, (ii) collateral constraints; nor (iii) funding constraints.
+	%	\item Banks are not subject to regulatory constraints such as: (i) capital ratios, (ii) leverage limits, nor (iii) risk-weighted asset rules.	Thus they can absorb any quantity of bonds.
+		\item No frictions in secondary markets fro public debt. Bonds can be traded freely between periods. Thus, there a 	no bid–ask spreads.
+		\item No central bank capital constraint. Thus, the central bank can run negative net worth if necessary. Default-state transfers can be negative. Thus the CB balance sheet does not restrict policy.
+	\end{itemize}
+These are not innocuous. In addition to the adding risk aversion in the banking sector, some the previous bullet points could be aspects that one could also consider analyzing.
+
+\singlespacing
+\bibliographystyle{plainnat}
+\bibliography{sovereign_monetary_literature}
+
+\end{document}
+
