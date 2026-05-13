@@ -1,0 +1,252 @@
+\documentclass[12pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{geometry}
+\usepackage{hyperref}
+
+\geometry{left=0.75in,right=0.75in,top=0.75in,bottom=0.75in}
+
+\begin{document}
+
+\section*{A Downward-Sloping Reserve Demand Curve}
+
+A first minimal way to discipline this margin is to introduce a downward-sloping reserve demand curve directly in reduced form. A convenient way to do so is to let banks derive utility not only from consumption but also from real reserve holdings:
+\[
+u(C^A_0)+\beta u(C^A_1)+\beta^2\mathbb{E}_0[u(C^A_2)]
++ \chi_0 \ell\!\left(\frac{m_0}{P_0}\right)
++ \beta \chi_1 \ell\!\left(\frac{m_1}{P_1}\right),
+\]
+where $\ell'(\cdot)>0$ and $\ell''(\cdot)<0$. Then the reserve Euler equation becomes
+\[
+\frac{u'(C^A_t)}{P_t}
+=
+\frac{\chi_t \ell'\!\left(m_t/P_t\right)}{P_t}
++ \beta(1+i^R_t)\,\mathbb{E}_t\!\left[\frac{u'(C^A_{t+1})}{P_{t+1}}\right].
+\]
+The extra term is the reduced-form counterpart of the shadow value $\lambda_t$ in the payment-services microfoundation below. Because it is decreasing in reserve holdings, reserve quantities are no longer free: for a given reserve rate, there is a finite demand for reserves. Equivalently, one can summarize the same force through an inverse reserve-demand curve
+\[
+i^R_t = \mathcal{I}_t\!\left(\frac{m_t}{P_t},\text{state}\right),
+\qquad
+\mathcal{I}'_t>0,
+\]
+and let reserve quantities be pinned down endogenously by bank demand and reserve-market clearing rather than chosen independently by policy.
+
+
+\subsubsection*{A Payment-Services Microfoundation}
+A simple payment-services microfoundation can rationalize this reduced form. Let $z^N_t$ denote payment services used by each non-bank in period $t$, and suppose non-banks value these services because they facilitate transactions. Aggregate payment services are $Z_t=(1-\mu)z^N_t$. At the per-bank level, let
+\[
+z_t \equiv \frac{Z_t}{\mu} = \frac{1-\mu}{\mu} z^N_t
+\]
+denote payment services supplied by one bank. Suppose banks must hold reserves to settle these payments:
+\[
+m_t \ge \theta P_t z_t.
+\]
+Let $s_t$ denote the real fee per unit of payment services paid by non-banks to banks. The fee applies only in periods $t=0,1$, because these are the periods in which reserves are held and used for settlement. Suppose $\mathcal{U}_C>0$, $\mathcal{U}_z>0$, and the marginal rate of substitution $\mathcal{U}_z/\mathcal{U}_C$ is decreasing in $z^N_t$. The non-bank problem can then be written intertemporally, in per-non-bank terms, as
+\[
+\max_{\{C^N_t,B^N_t,z^N_t\}}
+\mathcal{U}(C^N_0,z^N_0)
++\beta \mathcal{U}(C^N_1,z^N_1)
++\beta^2 \mathbb{E}_0[u(C^N_2)]
+\]
+subject to
+\[
+P_0 C^N_0 + Q^B_0(B)B^N_0 + P_0 s_0 z^N_0
+=
+P_0 W^N_0,
+\]
+\[
+P_1 C^N_1 + Q^B_1 B^N_1 + P_1 s_1 z^N_1
+=
+P_1 W^N_1 + Q^B_1 B^N_0,
+\]
+\[
+P_2 C^N_2
+=
+\mathbf{1}^{R}_2(B)B^N_1,
+\]
+
+\textbf{Important caveat:} There is no period-$2$ service fee in this finite-horizon version because there is no period-$2$ reserve choice $m_2$ or reserve supply $M_2$.
+
+Let $\nu^N_t$ denote the current-value non-bank marginal utility of one nominal unit in period $t$. The first-order conditions for $C^N_t$ and $z^N_t$ imply
+\[
+\mathcal{U}_C(C^N_t,z^N_t)
+=
+\nu^N_t P_t,
+\qquad
+\nu^N_t P_t s_t
+=
+\mathcal{U}_z(C^N_t,z^N_t),
+\qquad t=0,1.
+\]
+Combining these conditions gives the inverse demand for payment services,
+\[
+s_t
+=
+\frac{\mathcal{U}_z(C^N_t,z^N_t)}
+{\mathcal{U}_C(C^N_t,z^N_t)},
+\qquad t=0,1.
+\]
+Thus the service fee is the non-bank marginal rate of substitution between payment services and consumption. If this marginal rate of substitution is decreasing in $z^N_t$, payment-service demand is downward sloping.
+
+Now embed fee income directly in the bank's intertemporal problem. For $t=0,1$, the bank receives nominal payment-service revenue $P_t s_t z_t$ in addition to its endowment income. The bank solves
+\[
+\max_{\{C^A_t,B^A_t,m_t,z_t\}}
+u(C^A_0)+\beta u(C^A_1)+\beta^2 \mathbb{E}_0[u(C^A_2)]
+\]
+subject to
+\[
+P_0 C^A_0 + Q^B_0(B)B^A_0 + m_0
+=
+P_0 W^A_0 + P_0 s_0 z_0,
+\]
+\[
+P_1 C^A_1 + Q^B_1 B^A_1 + m_1
+=
+P_1 W^A_1 + (1+i^R_0)m_0 + Q^B_1 B^A_0 + P_1 s_1 z_1,
+\]
+\[
+P_2 C^A_2
+=
+(1+i^R_1)m_1 + \mathbf{1}^{R}_2(B)B^A_1,
+\]
+and the settlement constraints
+\[
+m_t \ge \theta P_t z_t,
+\qquad t=0,1.
+\]
+Let $\lambda_t$ denote the current-value multiplier on the period-$t$ settlement constraint, measured in marginal utility units per nominal reserve. The first-order condition with respect to reserves is
+\[
+\frac{u'(C^A_t)}{P_t}
+=
+\lambda_t
++ \beta(1+i^R_t)\,\mathbb{E}_t\!\left[\frac{u'(C^A_{t+1})}{P_{t+1}}\right],
+\qquad t=0,1.
+\]
+The term $\lambda_t$ is the shadow value of reserves coming from their role in settlement. The first-order condition with respect to payment services is
+\[
+\frac{u'(C^A_t)}{P_t}P_t s_t
+=
+\lambda_t \theta P_t,
+\]
+or
+\[
+\lambda_t
+=
+\frac{u'(C^A_t)}{P_t}\frac{s_t}{\theta}.
+\]
+
+
+\subsubsection*{Mapping to Reduced Form}
+To map this microfoundation into the reduced-form notation, let
+\[
+x_t \equiv \frac{m_t}{P_t}
+\]
+denote per-bank real reserve holdings. If the reserve requirement binds, then
+\[
+x_t
+=
+\theta z_t
+=
+\theta \frac{1-\mu}{\mu} z^N_t,
+\qquad
+z^N_t
+=
+\frac{\mu}{\theta(1-\mu)}x_t.
+\]
+Substituting into the fee equation gives the inverse demand for payment services as a function of real reserves:
+\[
+s_t(x_t)
+=
+\frac{
+\mathcal{U}_z\!\left(C^N_t,\frac{\mu}{\theta(1-\mu)}x_t\right)
+}{
+\mathcal{U}_C\!\left(C^N_t,\frac{\mu}{\theta(1-\mu)}x_t\right)
+}.
+\]
+Combining the inverse demand for payment services with the bank's payment-service first-order condition gives the induced inverse demand for reserves directly in terms of the shadow value $\lambda_t$:
+\[
+\lambda_t(x_t)
+=
+\frac{u'(C^A_t)}{P_t}
+\frac{s_t(x_t)}{\theta}
+=
+\frac{u'(C^A_t)}{P_t}
+\frac{1}{\theta}
+\frac{
+\mathcal{U}_z\!\left(C^N_t,\frac{\mu}{\theta(1-\mu)}x_t\right)
+}{
+\mathcal{U}_C\!\left(C^N_t,\frac{\mu}{\theta(1-\mu)}x_t\right)
+}.
+\]
+Holding the bank marginal value of nominal wealth $u'(C^A_t)/P_t$ fixed, differentiating yields the partial-equilibrium slope
+\[
+\lambda_t'(x_t)
+=
+\frac{u'(C^A_t)}{P_t}
+\frac{\mu}{\theta^2(1-\mu)}
+\frac{\partial}{\partial z}
+\left[
+\frac{\mathcal{U}_z(C^N_t,z)}
+{\mathcal{U}_C(C^N_t,z)}
+\right]_{z=\frac{\mu}{\theta(1-\mu)}x_t}.
+\]
+This partial derivative is negative whenever the non-bank marginal rate of substitution $\mathcal{U}_z/\mathcal{U}_C$ is decreasing in payment services.
+
+\subsubsection*{General Equilibrium}
+In general equilibrium, however, $x_t$ can also affect bank consumption and therefore the bank marginal value of nominal wealth. Writing this dependence explicitly,
+\[
+\lambda_t(x_t)
+=
+\frac{u'(C^A_t(x_t))}{P_t}\frac{s_t(x_t)}{\theta},
+\]
+so the total derivative is
+\[
+\lambda_t'(x_t)
+=
+\frac{1}{\theta P_t}
+\left[
+u''(C^A_t) C^{A\,\prime}_t(x_t)s_t(x_t)
++ u'(C^A_t)s_t'(x_t)
+\right].
+\]
+The second term is the payment-service demand channel and is negative when payment-service demand is downward sloping. The first term is a bank marginal-utility channel. Since $u''(\cdot)<0$ and $s_t(x_t)>0$, this term is negative if higher reserves raise bank consumption, but positive if higher reserves lower bank consumption.
+
+The sign of $C^{A\,\prime}_t(x_t)$ depends on the bank's net resource gain from providing additional payment services. With the settlement constraint binding, $z_t=x_t/\theta$, so the real net current resource contribution of reserves and payment-service fee income is
+\[
+s_t(x_t)z_t-x_t
+=
+x_t\left(\frac{s_t(x_t)}{\theta}-1\right).
+\]
+The marginal contribution is
+\[
+\frac{d}{dx_t}
+\left[
+x_t\left(\frac{s_t(x_t)}{\theta}-1\right)
+\right]
+=
+\frac{s_t(x_t)+x_t s_t'(x_t)}{\theta}-1.
+\]
+If $s_t(x_t)+x_t s_t'(x_t)>\theta$, then additional reserves tend to raise bank current resources and reinforce the downward slope of $\lambda_t(x_t)$. If $s_t(x_t)+x_t s_t'(x_t)<\theta$, then additional reserves tend to lower bank current resources, raising bank marginal utility and potentially offsetting the downward slope coming from non-bank payment-service demand.
+
+Thus the reduced-form assumption $\ell''(\cdot)<0$ should be interpreted as a condition on the total effect:
+\[
+\lambda_t'(x_t)<0.
+\]
+It holds when the declining marginal rate of substitution for payment services is strong enough to dominate any increase in bank marginal utility induced by the resource cost of holding reserves. The reduced-form specification is obtained by defining
+\[
+\frac{\chi_t \ell'\!\left(m_t/P_t\right)}{P_t}
+=
+\lambda_t\!\left(\frac{m_t}{P_t}\right),
+\]
+so the convenience-yield term in the reduced-form reserve Euler equation is exactly the nominal counterpart of the shadow value generated by the payment-services microfoundation.
+
+
+\subsection*{Points for Discussion}
+
+\begin{itemize}
+    \item In the terminal period, non-bank consumption does not require transaction services because no new reserves are issued. The special treatment of the terminal period should be further justified.
+    \item The general equilibrium effects on bank consumption introduce additional complexity in analyzing the slope of the reserve demand curve. In some instances, the slope could even be positive, implying that the assumption of a downward-sloping reserve demand curve may not always be valid.
+\end{itemize}
+\end{document}
